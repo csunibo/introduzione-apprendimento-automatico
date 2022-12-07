@@ -1,0 +1,72 @@
+Elenco di 30 possibili argomenti provenienti da una fonte affidabile per la
+prova scritta. Gli studenti speculano che, delle 30 domande estratte per lo
+scritto, ve ne sia una per ogni argomento.
+
+
+- formal expressiveness of NN
+
+- epoch, minibatch
+
+- learning rate
+
+- loss function
+
+- optimizer, learning rate
+
+- backpropagation algorithm
+
+- vanishing gradient problem
+
+- activation functions
+
+- overfitting
+
+- cross-entropy and KL
+
+-------------------------------------------------
+
+
+- convolutional layers
+
+- transposed convolution
+
+- dilated convolution
+
+- transfer learning
+
+- gradient ascent technique
+
+- why NN are easily fooled?
+
+- NNs for image processing
+
+- U-net 
+
+- YOLO
+
+- parameters and FLOPS for convolutions
+
+-------------------------------------------------
+
+- Autoencoder
+
+- GAN
+
+- Cycle-GAN
+
+- VAE
+
+- Conditional Generation
+
+- LSTM
+
+- Attention
+
+- Transformer
+
+- Reinforcement Learning
+
+- Difference between model-based and model-free approaches
+
+- Bellman equation
+
