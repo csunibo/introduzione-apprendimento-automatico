@@ -1,6 +1,7 @@
 Elenco di 30 possibili argomenti provenienti da una fonte affidabile per la
 prova scritta. Gli studenti speculano che, delle 30 domande estratte per lo
-scritto, ve ne sia una per ogni argomento.
+scritto, ve ne sia una per ogni argomento. Alcuni argomenti presenti non sono
+stati fatti a lezione.
 
 
 - formal expressiveness of NN
