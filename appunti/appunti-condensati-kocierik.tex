@@ -81,12 +81,11 @@ Per ovviare a questo problema:
 
 \section{Chain rule}
 La regola della catena è uno strumento molto utile nell'analisi matematica e nell'apprendimento automatico, poiché permette di \textbf{calcolare} facilmente il \textbf{derivato} di \textbf{funzioni complesse}. \\
-Ad esempio, supponiamo di avere una funzione $f(x)$ composta da due funzioni, $g(x)$ e $h(x)$, definite come segue:
+Ad esempio, date due funzione derivabili $f$ e $g$ con derivate $f^{'}$ e $g^{'}$, la derivata della funzione composta $h(x) = f(g(x))$ è:
 
-$$f(x) = g(x) * h(x)$$
+$$h^{'}(x) = f^{'}(g(x)) * g^{'}((x)) =  f^{'}(y) * g^{'}(x)$$
 
-Utilizzando la regola della catena, il derivato di $f(x)$ può essere calcolato come il prodotto dei derivati di $g(x)$ e $h(x)$:
-$$f'(x) = g'(x) * h'(x)$$
+La derivata della \textbf{composizione} di una serie di \textbf{funzione} è il \textbf{prodotto} delle derivate delle \textbf{singole} funzioni.
 
 
 \section{Transfer learning}
@@ -352,6 +351,6 @@ I transformer sono composti da diverse componenti, come le seguenti:
     \item \textbf{Strati di normalizzazione}: sono responsabili di normalizzare i valori dell'input in modo da evitare il problema dell'esplosione del gradiente.
     \item \textbf{Strati di addizione e moltiplicazione}: sono responsabili di combinare i risultati degli altri strati in modo da ottenere l'output finale.
 \end{itemize}
+
+
 \end{document}
-
-
