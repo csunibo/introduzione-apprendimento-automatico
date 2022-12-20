@@ -10,9 +10,11 @@
 \maketitle
 \tableofcontents
 
+\newpage
+
 \section{Entropia}
 L'\textbf{entropia} misura il grado di impurità dell'informazione. E' massimizzata quando la $X$ è uniforme su tutti i valori $(1)$ e minima $(0)$ quando è concentrata su un singolo valore.
-$$H(X) = -\sum_{i=1}^n P(X=i)log_2P(X=i)$$
+$$H(X) = - \sum_{i=1}^n P(X=i)log_2P(X=i)$$
 Quando gli attributi sono continui prendiamo decisioni attraverso delle \textbf{soglie}
 
 \section{Generative techniques}
@@ -25,6 +27,60 @@ Per esempio, immaginiamo di avere un insieme di dati che descrivono diverse spec
 
 La classificazione lineare è un metodo \textbf{semplice} e intuitivo, ma può essere \textbf{meno} \textbf{efficace} di altri metodi di classificazione in presenza di \textbf{relazioni} \textbf{complesse} tra le caratteristiche e le categorie. Tuttavia, è ancora ampiamente utilizzato in molti campi per la sua semplicità e la sua capacità di fornire risultati interpretabili.
 
+\section{Linear regression}
+La regressione lineare è un modello di statistica utilizzato per stabilire una relazione tra una variabile dipendente (che si vuole prevedere) e una o più variabili indipendenti (che vengono utilizzate per fare la previsione). Si basa sull'assunzione che esista una relazione lineare tra la variabile dipendente e le variabili indipendenti.
+
+In italiano, la regressione lineare viene spesso utilizzata per fare previsioni sulla base di dati del passato o per comprendere come le varie variabili indipendenti influiscono sulla variabile dipendente. Ad esempio, potrebbe essere utilizzata per prevedere il prezzo di una casa sulla base della sua dimensione, della sua posizione e di altri fattori, o per capire come il numero di ore di esercizio fisico settimanale influisce sulla pressione sanguigna di una persona.
+
+
+\section{Bias}
+Il bias si riferisce alla tendenza di un modello a fare \textbf{previsioni} o a prendere decisioni in modo \textbf{scorretto} o sfavorevole per alcune \textbf{categorie} di input.
+\\
+Il bias può essere presente in diversi modi: ad esempio, un modello di classificazione potrebbe avere un \textbf{bias} \textbf{verso} una particolare \textbf{classe}, \textbf{classificando} in modo \textbf{scorretto} gli input appartenenti a quella classe. \textbf{Oppure}, un modello di previsione potrebbe avere un bias \textbf{verso} alcune variabili, ignorando altre \textbf{variabili} che potrebbero essere rilevanti per la previsione.
+\\
+Il bias può avere diverse cause, ad esempio la presenza di dati di \textbf{training} \textbf{sbilanciati} o la scelta di un \textbf{modello} \textbf{non adeguato} per il problema da risolvere. È importante individuare e correggere il bias nei modelli di intelligenza artificiale, in modo da evitare decisioni o previsioni scorrette o sfavorevoli per alcune categorie di input.
+
+\section{Epoch}
+Un'epoca rappresenta un \textbf{ciclo} di \textbf{addestramento} del modello sui dati di training. Durante un'epoca, il modello viene esposto a tutti i dati di training e viene \textbf{aggiornato} in base agli \textbf{errori} commessi nella previsione.
+\\
+Il numero di epoche è un parametro che viene \textbf{scelto} dal \textbf{progettista} del modello e \textbf{rappresenta} il numero di volte che il modello viene \textbf{addestrato} sui \textbf{dati} di training. Maggiore è il numero di epoche, \textbf{maggiore} è il \textbf{tempo} impiegato per addestrare il modello, ma anche maggiore è la possibilità che il modello raggiunga una buona \textbf{performance}.
+
+
+\section{Batch}
+Il termine "batch" si riferisce a un \textbf{insieme} di \textbf{dati} che vengono utilizzati per \textbf{aggiornare} i \textbf{pesi} di un modello durante il processo di addestramento.
+
+Il processo di addestramento di un modello può essere \textbf{suddiviso} in diverse \textbf{epoche}, ognuna delle quali può essere suddivisa a sua volta in più batch. Ad esempio, se il dataset di training è composto da 1000 esempi e si utilizza un batch size di 100, il processo di addestramento sarà suddiviso in 10 batch, ognuno dei quali conterrà 100 esempi.
+
+
+\section{Optimizer}
+Un ottimizzatore (o "optimizer") è un algoritmo utilizzato per \textbf{aggiornare} i \textbf{pesi} di un modello durante il processo di addestramento. L'\textbf{obiettivo} dell'ottimizzatore è quello di \textbf{minimizzare} l'\textbf{errore} del modello, ovvero la differenza tra le previsioni del modello e i valori osservati nei dati di training.
+\\
+Esistono diverse strategie di ottimizzazione, ognuna delle quali si basa su un approccio specifico per aggiornare i pesi del modello. Ad \textbf{esempio}, l'ottimizzatore "gradient descent" utilizza il \textbf{gradiente} dell'errore per \textbf{aggiornare} i \textbf{pesi} del modello
+
+\section{Decision trees}
+Gli alberi di decisione sono una tecnica di apprendimento automatico utilizzata per fare \textbf{previsioni} o \textbf{classificare} i dati. Funzionano \textbf{creando} un \textbf{modello} basato su una serie di regole di decisione, dove ogni nodo dell'albero \textbf{rappresenta} una \textbf{decisione} da prendere e ogni \textbf{ramo} rappresenta una possibile conseguenza di quella decisione.
+\\
+Per costruire un albero di decisione, si inizia dall'alto verso il basso, \textbf{selezionando} la \textbf{feature} che \textbf{massimizza} l'informazione sulla variabile da prevedere. A ogni passo, si seleziona la feature che fornisce il massimo guadagno di informazione, ovvero quella che meglio separa gli esempi positivi da quelli negativi. Si \textbf{continua} finché non si raggiunge una \textbf{soglia} di \textbf{purezza} desiderata o non ci sono più feature da considerare.
+\\
+Gli alberi di decisione sono \textbf{facili} da \textbf{comprendere} e da \textbf{interpretare}, ma possono essere \textbf{sensibili} al \textbf{rumore} nei dati e tendono a \textbf{sovrastimare} le prestazioni durante il training. Tuttavia, questi \textbf{svantaggi} possono essere \textbf{mitigati} utilizzando tecniche come il \textbf{pruning} (potatura) degli alberi o l'utilizzo di un insieme di alberi di decisione come nel caso del \textbf{random forest}.
+
+\section{Random forest}
+Un random forest è costituito da un \textbf{insieme} di \textbf{alberi} di \textbf{decisione}, dove ogni albero viene allenato utilizzando un sottoinsieme casuale delle features (caratteristiche) presenti nel dataset di input e da un sottoinsieme casuale di esempi del dataset. Quando si deve effettuare una previsione, \textbf{ciascun} \textbf{albero} del foresto \textbf{fornisce} la sua \textbf{previsione} e il risultato finale viene ottenuto mediante una votazione tra le previsioni dei singoli alberi.
+\\
+Il random forest è un \textbf{algoritmo} robusto e generalmente molto \textbf{preciso}, ed è particolarmente utile quando si hanno \textbf{datasets} di \textbf{grandi} dimensioni o con un elevato numero di features. Tuttavia, poiché utilizza un \textbf{gran} \textbf{numero} di \textbf{alberi} di decisione, può essere piuttosto \textbf{lento} durante il training e durante l'utilizzo in fase di predizione.
+
+\section{No free lunch}
+Il principio "No free lunch" (NFL) afferma che, in assenza di informazioni specifiche sui dati, \textbf{nessun} \textbf{algoritmo} di apprendimento automatico è intrinsecamente \textbf{migliore} di un \textbf{altro}. In altre parole, non esiste un algoritmo "universale" che funzioni bene in tutte le situazioni.
+\\
+Questo principio si basa sul fatto che ogni \textbf{algoritmo} di apprendimento automatico ha delle \textbf{proprietà} \textbf{specifiche} e delle ipotesi implicite sui dati, e che queste proprietà possono renderlo adatto a funzionare bene in alcune situazioni ma meno performante in altre. Ad esempio, un algoritmo di classificazione basato sulla regressione logistica potrebbe funzionare bene su dati linearmente separabili, ma potrebbe avere prestazioni peggiori su dati non linearmente separabili.
+
+
+\section{Gradient ascendent}
+La tecnica di "gradient ascent" (o "ascesa del gradiente") è un algoritmo utilizzato in intelligenza artificiale e in particolare in apprendimento automatico per \textbf{ottimizzare} i \textbf{pesi} di un modello.
+\\
+In generale, la tecnica di gradient ascent consiste nel \textbf{calcolare} il gradiente della \textbf{funzione} di \textbf{perdita} (ovvero l'errore) rispetto ai pesi del modello, e quindi nel modificare i pesi del modello in modo da aumentare il valore della funzione di perdita. Ciò viene \textbf{ripetuto} iterativamente fino a quando la funzione di perdita non \textbf{raggiunge} il massimo o un punto di \textbf{convergenza}.
+\\
+La tecnica di gradient ascent viene utilizzata in particolare quando la funzione di perdita è monotona crescente rispetto ai pesi del modello. Tuttavia, può essere utilizzata anche in altri contesti, ad esempio per ottimizzare modelli di intelligenza artificiale per la generazione di testi o immagini.
 
 \section{Convolutional layer}
 Ogni neurone al layer $k-1$ è connesso parametricamente al \textbf{kernel} ad un sottoinsieme di neuroni al layer $k$. Il kernel è convoluto dal precedente. La dimensione dell'output dipende dal numero di volte che il \textbf{kernel è applicato}. L'input è \textbf{strutturato} e riflette sull'output.
@@ -103,7 +159,7 @@ La derivata della \textbf{composizione} di una serie di \textbf{funzione} è il 
 Il transfer learning è una tecnica utilizzata nell'apprendimento automatico per \textbf{trasferire} le \textbf{conoscenze} acquisite da un \textbf{modello} pre-addestrato su un problema a un nuovo problema. In altre parole, il transfer learning permette di riutilizzare un modello pre-addestrato su un problema simile, \textbf{anziché} addestrarne uno \textbf{da zero}, al fine di ridurre i tempi di addestramento e migliorare le prestazioni del modello.
 
 \section{Receptive field}   
-Il campo di ricezione (receptive field) di un neurone è la porzione dello spazio di input che il \textbf{neurone} può "vedere". In altre parole, è la regione dello \textbf{spazio} di \textbf{input} che ha un \textbf{effetto} sull'\textbf{output} del neurone.
+Il campo di ricezione (receptive field) di un neurone è la porzione dello spazio di input che il \textbf{neurone} può ``vedere''. In altre parole, è la regione dello \textbf{spazio} di \textbf{input} che ha un \textbf{effetto} sull'\textbf{output} del neurone.
 
 \section{Cos'è un tensore:}
 Un tensore è un \textbf{array} multidimensionale. Un tensore tipico per immagini 2D  ha $4$ \textbf{dimensioni}:
@@ -185,6 +241,21 @@ Esistono diverse tecniche di compressione che possono essere utilizzate in machi
     \item \textbf{Compressione del modello}: consiste nel ridurre il numero di parametri o la complessità del modello stesso, ad esempio utilizzando modelli più piccoli o semplificando la struttura del modello.
     \item \textbf{Compressione delle feature}: si tratta di ridurre il numero di variabili di input utilizzate dal modello, ad esempio eliminando variabili non rilevanti o utilizzando una rappresentazione più compatta delle feature.
 \end{itemize}
+
+\section{Anomaly detection}
+L'anomaly detection, o rilevamento di anomalie, è una tecnica utilizzata per \textbf{individuare} \textbf{elementi} che si \textbf{discostano} in modo significativo da un \textbf{modello} o da una tendenza stabilita. In altre parole, si tratta di un processo che cerca di \textbf{identificare} eventi o \textbf{dati} \textbf{atipici} all'interno di un insieme di dati.
+
+Esistono diversi metodi per effettuare il rilevamento di anomalie, tra cui:
+\begin{itemize}
+    \item \textbf{Modelli di distribuzione}: si basano sulla definizione di una distribuzione \textbf{probabilistica} dei dati e sulla individuazione di punti che si discostano significativamente da essa.
+    \item \textbf{Algoritmi di apprendimento supervisionato}: si basano sull'utilizzo di un set di dati di allenamento per costruire un modello che può essere utilizzato per \textbf{classificare} i \textbf{dati} in categorie predefinite (ad esempio, anomali o normali).
+    \item \textbf{Algoritmi di clustering}: si basano sulla suddivisione dei dati in \textbf{gruppi} \textbf{omogenei} (cluster) in base a determinate caratteristiche, individuando poi gli elementi che non appartengono a nessun cluster o che si discostano significativamente dai cluster vicini.
+\end{itemize}
+
+
+
+
+
 
 \section{Latent encoding}
 L'encoding latente consiste nel \textbf{mappare} un \textbf{dato} o un'informazione in un insieme di \textbf{caratteristiche} \textbf{nascoste} che possono essere utilizzate per rappresentare il dato in modo più \textbf{efficiente} o per eseguire operazioni di machine learning.
@@ -336,6 +407,21 @@ L'attenzione in machine learning è un concetto che si riferisce alla \textbf{ca
 Un modello che utilizza l'attenzione può \textbf{concentrarsi} su \textbf{determinati} \textbf{elementi} dell'input in modo più accurato e dettagliato, rispetto a un modello che tratta tutti gli elementi dell'input allo stesso modo. Ciò può aiutare il modello a fare \textbf{previsioni} o \textbf{classificazioni} più \textbf{accurate}, soprattutto in caso di input complessi o astratti.\\
 
 L'attenzione viene spesso utilizzata in \textbf{combinazione} con le reti neurali ricorrenti (\textbf{RNN}) per consentire al modello di prestare attenzione a specifici elementi di una sequenza di dati nel tempo. Ad esempio, in un modello di traduzione automatica, l'attenzione può essere utilizzata per fare in modo che il modello presti maggiore attenzione alle parole chiave della frase di origine durante la traduzione.
+
+\section{Attention: the key-value approach}
+Il concetto di "Attention: the key-value approach" può essere tradotto come "Attenzione: l'approccio \textbf{chiave-valore}". Si tratta di una tecnica utilizzata in alcuni modelli di intelligenza artificiale, in particolare nei modelli di linguaggio, per implementare l'attenzione a sé stessi (self-attention).
+\\
+L'approccio chiave-valore consiste nell'utilizzo di due \textbf{vettori}, chiamati "chiave di attenzione" (\textbf{attention key}) e "valore di attenzione" (\textbf{attention value}), per calcolare l'importanza di ogni parola o sequenza di parole nell'input e trasformare le informazioni contenute nell'input in un formato che può essere utilizzato dal modello.
+\\
+La chiave di attenzione è un \textbf{vettore} di \textbf{pesi} che viene utilizzato per \textbf{calcolare} la "punteggiatura" di attenzione (\textbf{attention score}) per ogni parola o sequenza di parole. Il valore di attenzione è un vettore di trasformazione che viene utilizzato per trasformare le informazioni contenute nell'input in un formato utilizzabile dal modello.
+\\
+La punteggiatura di attenzione viene calcolata utilizzando la chiave di attenzione e il valore di attenzione insieme, e viene utilizzata per \textbf{determinare} l'\textbf{importanza} di ogni parola o sequenza di parole per il modello. In questo modo, il modello può prestare maggiore attenzione alle parole o alle frasi più rilevanti per il significato del testo e fare previsioni più accurate.
+
+\section{Multi head attention}
+Il concetto di base dell'attenzione multipla è quello di utilizzare più "teste di attenzione" per fare \textbf{riferimento} a diverse parti del vettore di \textbf{input} in modo \textbf{indipendente}. Ognuna di queste teste di attenzione può essere vista come un modello di attenzione separato che cerca di \textbf{catturare} \textbf{relazioni} \textbf{diverse} tra gli elementi del vettore. Il risultato finale dell'attenzione multipla è quindi ottenuto dall'\textbf{aggregazione} dei \textbf{risultati} delle diverse teste di attenzione.
+\\
+L'utilizzo dell'attenzione multipla può essere utile in molti casi, ad esempio per \textbf{catturare} \textbf{relazioni} tra parole in un testo che potrebbero essere trascurate da un \textbf{modello} di attenzione \textbf{tradizionale}, che considera solo una parte del testo alla volta. Inoltre, l'utilizzo di diverse teste di attenzione permette di catturare relazioni diverse tra gli elementi del vettore, il che può essere particolarmente \textbf{utile} in casi in cui il \textbf{vettore} di input è \textbf{complesso} o contiene informazioni di diverse nature.
+
 
 \section{Gating function}
 Le funzioni di ingate (o "gating functions") sono una tecnica utilizzata in machine learning per \textbf{gestire} l'\textbf{informazione} all'interno di un \textbf{modello}. Sono spesso utilizzate nelle reti neurali ricorrenti (RNN) per \textbf{controllare} quali \textbf{informazioni} vengono \textbf{trasmesse} da un passo all'altro nella sequenza di dati e quali invece vengono dimenticate.\\
