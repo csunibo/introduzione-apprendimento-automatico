@@ -1,7 +1,6 @@
-Elenco di 30 possibili argomenti provenienti da una fonte affidabile per la
-prova scritta. Gli studenti speculano che, delle 30 domande estratte per lo
-scritto, ve ne sia una per ogni argomento.
-
+Elenco di 30 possibili sottoargomenti relativi alle reti neurali provenienti da
+una fonte affidabile per la prova scritta. Questo elenco non contiene
+sottoargomenti sulla parte precedente alle reti neurali.
 
 - formal expressiveness of NN
 
