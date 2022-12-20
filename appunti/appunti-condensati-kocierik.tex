@@ -1,0 +1,452 @@
+\documentclass{article}
+\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+
+\title{Nozioni apprendimento automatico}
+\author{kocierik}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{Entropia}
+L'\textbf{entropia} misura il grado di impurità dell'informazione. E' massimizzata quando la $X$ è uniforme su tutti i valori $(1)$ e minima $(0)$ quando è concentrata su un singolo valore.
+$$H(X) = - \sum_{i=1}^n P(X=i)log_2P(X=i)$$
+Quando gli attributi sono continui prendiamo decisioni attraverso delle \textbf{soglie}
+
+\section{Generative techniques}
+Le tecniche generative sono una categoria di metodi utilizzati in diverse discipline per creare contenuti artificiali che imitano il comportamento umano o il processo di generazione di una certa classe di oggetti. Ad esempio, le tecniche generative possono essere utilizzate per \textbf{creare} \textbf{immagini}, testo o musica artificiali che sembrano essere stati creati da esseri umani. In campo medico, le tecniche generative possono essere utilizzate per \textbf{generare} \textbf{dati} di laboratorio o per \textbf{prevedere} il comportamento di una determinata malattia. Nel campo dell'intelligenza artificiale, le tecniche generative vengono spesso utilizzate per \textbf{creare} \textbf{modelli} di dati o per sintetizzare dati da fonti esterne.
+
+\section{Linear Classification}
+La classificazione lineare è un tipo di algoritmo di classificazione utilizzato in intelligenza artificiale e in altri campi per \textbf{prevedere} a quale di diverse \textbf{categorie} \textbf{appartiene} un oggetto o un dato, in base a una serie di caratteristiche note. In altre parole, la classificazione lineare cerca di \textbf{stabilire} una \textbf{relazione} lineare tra le \textbf{caratteristiche} di un oggetto e la sua \textbf{categoria} di appartenenza.\\
+
+Per esempio, immaginiamo di avere un insieme di dati che descrivono diverse specie di fiori in base a loro petali, lunghezza dello stelo e colore. Un algoritmo di classificazione lineare potrebbe essere utilizzato per prevedere a quale specie appartiene un fiore in base a queste caratteristiche. \\
+
+La classificazione lineare è un metodo \textbf{semplice} e intuitivo, ma può essere \textbf{meno} \textbf{efficace} di altri metodi di classificazione in presenza di \textbf{relazioni} \textbf{complesse} tra le caratteristiche e le categorie. Tuttavia, è ancora ampiamente utilizzato in molti campi per la sua semplicità e la sua capacità di fornire risultati interpretabili.
+
+\section{Linear regression}
+La regressione lineare è un modello di statistica utilizzato per stabilire una relazione tra una variabile dipendente (che si vuole prevedere) e una o più variabili indipendenti (che vengono utilizzate per fare la previsione). Si basa sull'assunzione che esista una relazione lineare tra la variabile dipendente e le variabili indipendenti.
+
+In italiano, la regressione lineare viene spesso utilizzata per fare previsioni sulla base di dati del passato o per comprendere come le varie variabili indipendenti influiscono sulla variabile dipendente. Ad esempio, potrebbe essere utilizzata per prevedere il prezzo di una casa sulla base della sua dimensione, della sua posizione e di altri fattori, o per capire come il numero di ore di esercizio fisico settimanale influisce sulla pressione sanguigna di una persona.
+
+
+\section{Bias}
+Il bias si riferisce alla tendenza di un modello a fare \textbf{previsioni} o a prendere decisioni in modo \textbf{scorretto} o sfavorevole per alcune \textbf{categorie} di input.
+\\
+Il bias può essere presente in diversi modi: ad esempio, un modello di classificazione potrebbe avere un \textbf{bias} \textbf{verso} una particolare \textbf{classe}, \textbf{classificando} in modo \textbf{scorretto} gli input appartenenti a quella classe. \textbf{Oppure}, un modello di previsione potrebbe avere un bias \textbf{verso} alcune variabili, ignorando altre \textbf{variabili} che potrebbero essere rilevanti per la previsione.
+\\
+Il bias può avere diverse cause, ad esempio la presenza di dati di \textbf{training} \textbf{sbilanciati} o la scelta di un \textbf{modello} \textbf{non adeguato} per il problema da risolvere. È importante individuare e correggere il bias nei modelli di intelligenza artificiale, in modo da evitare decisioni o previsioni scorrette o sfavorevoli per alcune categorie di input.
+
+\section{Epoch}
+Un'epoca rappresenta un \textbf{ciclo} di \textbf{addestramento} del modello sui dati di training. Durante un'epoca, il modello viene esposto a tutti i dati di training e viene \textbf{aggiornato} in base agli \textbf{errori} commessi nella previsione.
+\\
+Il numero di epoche è un parametro che viene \textbf{scelto} dal \textbf{progettista} del modello e \textbf{rappresenta} il numero di volte che il modello viene \textbf{addestrato} sui \textbf{dati} di training. Maggiore è il numero di epoche, \textbf{maggiore} è il \textbf{tempo} impiegato per addestrare il modello, ma anche maggiore è la possibilità che il modello raggiunga una buona \textbf{performance}.
+
+
+\section{Batch}
+Il termine "batch" si riferisce a un \textbf{insieme} di \textbf{dati} che vengono utilizzati per \textbf{aggiornare} i \textbf{pesi} di un modello durante il processo di addestramento.
+
+Il processo di addestramento di un modello può essere \textbf{suddiviso} in diverse \textbf{epoche}, ognuna delle quali può essere suddivisa a sua volta in più batch. Ad esempio, se il dataset di training è composto da 1000 esempi e si utilizza un batch size di 100, il processo di addestramento sarà suddiviso in 10 batch, ognuno dei quali conterrà 100 esempi.
+
+
+\section{Optimizer}
+Un ottimizzatore (o "optimizer") è un algoritmo utilizzato per \textbf{aggiornare} i \textbf{pesi} di un modello durante il processo di addestramento. L'\textbf{obiettivo} dell'ottimizzatore è quello di \textbf{minimizzare} l'\textbf{errore} del modello, ovvero la differenza tra le previsioni del modello e i valori osservati nei dati di training.
+\\
+Esistono diverse strategie di ottimizzazione, ognuna delle quali si basa su un approccio specifico per aggiornare i pesi del modello. Ad \textbf{esempio}, l'ottimizzatore "gradient descent" utilizza il \textbf{gradiente} dell'errore per \textbf{aggiornare} i \textbf{pesi} del modello
+
+\section{Decision trees}
+Gli alberi di decisione sono una tecnica di apprendimento automatico utilizzata per fare \textbf{previsioni} o \textbf{classificare} i dati. Funzionano \textbf{creando} un \textbf{modello} basato su una serie di regole di decisione, dove ogni nodo dell'albero \textbf{rappresenta} una \textbf{decisione} da prendere e ogni \textbf{ramo} rappresenta una possibile conseguenza di quella decisione.
+\\
+Per costruire un albero di decisione, si inizia dall'alto verso il basso, \textbf{selezionando} la \textbf{feature} che \textbf{massimizza} l'informazione sulla variabile da prevedere. A ogni passo, si seleziona la feature che fornisce il massimo guadagno di informazione, ovvero quella che meglio separa gli esempi positivi da quelli negativi. Si \textbf{continua} finché non si raggiunge una \textbf{soglia} di \textbf{purezza} desiderata o non ci sono più feature da considerare.
+\\
+Gli alberi di decisione sono \textbf{facili} da \textbf{comprendere} e da \textbf{interpretare}, ma possono essere \textbf{sensibili} al \textbf{rumore} nei dati e tendono a \textbf{sovrastimare} le prestazioni durante il training. Tuttavia, questi \textbf{svantaggi} possono essere \textbf{mitigati} utilizzando tecniche come il \textbf{pruning} (potatura) degli alberi o l'utilizzo di un insieme di alberi di decisione come nel caso del \textbf{random forest}.
+
+\section{Random forest}
+Un random forest è costituito da un \textbf{insieme} di \textbf{alberi} di \textbf{decisione}, dove ogni albero viene allenato utilizzando un sottoinsieme casuale delle features (caratteristiche) presenti nel dataset di input e da un sottoinsieme casuale di esempi del dataset. Quando si deve effettuare una previsione, \textbf{ciascun} \textbf{albero} del foresto \textbf{fornisce} la sua \textbf{previsione} e il risultato finale viene ottenuto mediante una votazione tra le previsioni dei singoli alberi.
+\\
+Il random forest è un \textbf{algoritmo} robusto e generalmente molto \textbf{preciso}, ed è particolarmente utile quando si hanno \textbf{datasets} di \textbf{grandi} dimensioni o con un elevato numero di features. Tuttavia, poiché utilizza un \textbf{gran} \textbf{numero} di \textbf{alberi} di decisione, può essere piuttosto \textbf{lento} durante il training e durante l'utilizzo in fase di predizione.
+
+\section{No free lunch}
+Il principio "No free lunch" (NFL) afferma che, in assenza di informazioni specifiche sui dati, \textbf{nessun} \textbf{algoritmo} di apprendimento automatico è intrinsecamente \textbf{migliore} di un \textbf{altro}. In altre parole, non esiste un algoritmo "universale" che funzioni bene in tutte le situazioni.
+\\
+Questo principio si basa sul fatto che ogni \textbf{algoritmo} di apprendimento automatico ha delle \textbf{proprietà} \textbf{specifiche} e delle ipotesi implicite sui dati, e che queste proprietà possono renderlo adatto a funzionare bene in alcune situazioni ma meno performante in altre. Ad esempio, un algoritmo di classificazione basato sulla regressione logistica potrebbe funzionare bene su dati linearmente separabili, ma potrebbe avere prestazioni peggiori su dati non linearmente separabili.
+
+
+\section{Gradient ascendent}
+La tecnica di "gradient ascent" (o "ascesa del gradiente") è un algoritmo utilizzato in intelligenza artificiale e in particolare in apprendimento automatico per \textbf{ottimizzare} i \textbf{pesi} di un modello.
+\\
+In generale, la tecnica di gradient ascent consiste nel \textbf{calcolare} il gradiente della \textbf{funzione} di \textbf{perdita} (ovvero l'errore) rispetto ai pesi del modello, e quindi nel modificare i pesi del modello in modo da aumentare il valore della funzione di perdita. Ciò viene \textbf{ripetuto} iterativamente fino a quando la funzione di perdita non \textbf{raggiunge} il massimo o un punto di \textbf{convergenza}.
+\\
+La tecnica di gradient ascent viene utilizzata in particolare quando la funzione di perdita è monotona crescente rispetto ai pesi del modello. Tuttavia, può essere utilizzata anche in altri contesti, ad esempio per ottimizzare modelli di intelligenza artificiale per la generazione di testi o immagini.
+
+\section{Convolutional layer}
+Ogni neurone al layer $k-1$ è connesso parametricamente al \textbf{kernel} ad un sottoinsieme di neuroni al layer $k$. Il kernel è convoluto dal precedente. La dimensione dell'output dipende dal numero di volte che il \textbf{kernel è applicato}. L'input è \textbf{strutturato} e riflette sull'output.
+
+\section{Kullback-Leibler divergence}
+La divergenza di Kullback-Leibler (KL divergence) è una misura di \textbf{disuguaglianza} tra due distribuzioni di \textbf{probabilità}. Si basa sulla \textbf{differenza} tra l'entropia di una distribuzione di probabilità e l'\textbf{entropia} dell'altra distribuzione, tenendo conto della prima distribuzione.\\
+ Può essere \textbf{utilizzata} per valutare quanto un modello di apprendimento automatico si \textbf{avvicini} a una distribuzione di probabilità \textbf{ideale}.\\
+ La KL divergence è spesso utilizzata nell'ottimizzazione dei modelli di apprendimento automatico, dove viene \textbf{utilizzata} come termine di perdita per \textbf{minimizzare} la differenza tra la distribuzione del modello e la distribuzione ideale. Inoltre, viene spesso utilizzata nell'inferenza bayesiana per stimare la verosimiglianza di un modello rispetto a un altro.
+ 
+
+\section{Vanish gradient problem}
+Nel Vanishing gradient, il gradiente assume un valore \textbf{nullo} o asintotico allo zero \textbf{impedendo} cosi l’\textbf{aggiornamento} dei \textbf{pesi}. In una rete convoluzionale gli strati in prossimità dell’input \textbf{estraggono} dall'immagine \textbf{features} spaziali. Le reti \textbf{profonde} sono però \textbf{difficili} da \textbf{addestrare}. Uno dei maggiori problemi è la scomparsa del gradiente. Durante la fase di \textbf{backpropagation} i pesi degli strati in prossimità dell’\textbf{input} restano \textbf{costanti} o si \textbf{aggiornano} molto \textbf{lentamente} al contrario di quanto \textbf{accade} per gli \textbf{strati} \textbf{vicini} all’output.
+
+\section{Logistic regressor}
+La regressione logistica \textbf{stima} la \textbf{probabilità} del verificarsi di un evento, come ad esempio voto espresso o non espresso, \textbf{sulla base} di uno specifico \textbf{dataset} di \textbf{variabili} indipendenti. Poiché il \textbf{risultato} è una \textbf{probabilità}, la variabile dipendente è vincolata tra 0 e 1. Nella regressione logistica, viene applicata una trasformazione logit sulle probabilità - ossia la \textbf{probabilità} di \textbf{successo} \textbf{divisa} per la probabilità di \textbf{fallimento}. Ciò è anche comunemente noto come \textbf{probabilità} \textbf{logaritmica}, o logaritmo naturale delle probabilità.
+
+\section{Activation function}
+Quindi fondamentalmente una funzione di attivazione viene utilizzata per \textbf{mappare} l’\textbf{ingresso} all’\textbf{uscita}. Questa funzione di attivazione aiuta una \textbf{rete} \textbf{neurale} ad \textbf{apprendere} relazioni e schemi complessi nei dati.\\
+Un uso importante della funzione di attivazione è di \textbf{mantenere} l’uscita limitata a un \textbf{intervallo} particolare. Un altro uso della funzione di attivazione è l’aggiunta di non linearità nei dati. \textbf{Scegliamo} sempre \textbf{funzioni non lineari} come funzioni di attivazione.\\
+Se usiamo le funzioni di \textbf{attivazione lineare} in una \textbf{rete} neurale \textbf{profonda}, indipendentemente dalla profondità della nostra rete, sarà \textbf{equivalente} ad una semplice \textbf{rete} neurale lineare \textbf{senza strati} nascosti perché quelle funzioni di attivazione lineare possono essere \textbf{combinate} per formare un’altra \textbf{singola funzione lineare}.  \\
+
+Quindi fondamentalmente tutta la nostra rete sarà \textbf{ridotta} ad un \textbf{singolo neurone} con quella funzione lineare combinata come sua funzione di attivazione e quel singolo neurone
+
+\section{Feed-forward
+network}
+Una rete neurale feed-forward  è una rete neurale artificiale dove le connessioni tra i nodi \textbf{non formano cicli}, differenziandosi dalle reti neurali ricorrenti. Questo tipo di rete neurale fu la prima e più semplice tra quelle messe a punto. In questa rete neurale le \textbf{informazioni} si muovono solo in \textbf{una direzione}, avanti, rispetto a nodi d'ingresso, attraverso nodi nascosti (se esistenti) fino ai nodi d'uscita. Nella rete non ci sono cicli. Le reti feed-forward \textbf{non hanno memoria }degli input avvenuti a tempi precedenti, per cui l'\textbf{output} è \textbf{determinato} solamente dall'attuale \textbf{input}.
+
+\section{Dense layer}
+In ogni rete neurale un layer denso è connesso al precedente neurone. Questo layer è il più comunemente usanto nelle reti neurali. Ogni \textbf{neurone} al layer $k-1$ è \textbf{connesso} agli \textbf{altri neuroni} al layer $k$.
+\\
+Esso è uno strato di una rete neurale artificiale che si occupa di effettuare una \textbf{trasformazione} \textbf{lineare} dei dati di input. Ciò significa che ogni \textbf{neurone} dello strato denso \textbf{riceve} input da tutti i neuroni dello strato \textbf{precedente} e produce un output calcolando una combinazione lineare di questi input.
+\\
+Gli strati densi sono spesso utilizzati come "building block" di reti neurali artificiali perché possono essere \textbf{facilmente combinati} tra loro per creare modelli di apprendimento automatico più complessi. Ad esempio, è possibile creare una rete neurale con più strati densi, dove ciascuno strato riceve come input i dati prodotti dallo strato precedente e li trasforma in modo lineare. Oppure, è possibile combinare strati densi con altri tipi di strati, come gli strati di pooling o di dropout, per creare modelli di apprendimento automatico ancora più sofisticati.
+
+\section{Convolution layer}
+Ogni neurone al layer $k-1$ è \textbf{connesso} \textbf{parametricamente} al \textbf{kernel} in un numero \textbf{fisso} di neuroni al layer $k$. Il kernel è \textbf{convoluto} al layer precedente. La dimensione dell'output dipende soolo dal numero di volte che il kernel è applicato. Questo layer consente di estrarre caratteristiche \textbf{specifiche}. Ad esempio, un layer convoluto potrebbe utilizzare un \textbf{filtro} per rilevare \textbf{bordi} o linee nell'immagine di ingresso.\\
+A differenza di un layer denso, che connette ogni unità a tutte le unità del layer precedente, un layer convoluto utilizza solo un \textbf{sottoinsieme} di \textbf{connessioni}, che permette di conservare la struttura spaziale dei dati.
+
+\section{Current loss}
+In campo dell'apprendimento automatico, il "loss" è una \textbf{misura} dell'\textbf{errore} commesso da un modello durante la sua fase di training. Questo valore viene calcolato utilizzando una \textbf{funzione} di \textbf{perdita}, che confronta le previsioni del modello con i valori desiderati (noti anche come etichette). La funzione di perdita restituisce un valore che indica quanto l'\textbf{errore} sia grande, e questo valore viene utilizzato dall'algoritmo di ottimizzazione per \textbf{aggiustare} i \textbf{pesi} del modello in modo da ridurre l'errore nelle previsioni.
+
+\section{Backpropagation}
+Un metodo semplice per risolvere il problema delle reti neurali è quello di muoversi a piccoli passi sulla superficie della funzione  (Discesa del gradiente)   e via via \textbf{ricalcolare} i pesi della rete neurale \textbf{partendo} da quelli già \textbf{noti} e dall’ultimo errore calcolato per ridurre lo stesso. ( Back Propagation).\\
+Il meccanismo  di addestramento, inizia con  un’operazione di \textbf{inizializzazione} \textbf{casuale} dei \textbf{pesi}, ed \textbf{itera} passando  le coppie di input-output appartenenti ad un prefissato insieme di dati al modello neurale,  fin quando, grazie ad operazioni di aggiornamento dei pesi, non si \textbf{raggiunge} il \textbf{minimo} (assoluto) della  funzione costo, che \textbf{esprime} la \textbf{misura} della \textbf{distanza} che intercorre tra gli output desiderati e i corrispondenti output che il modello neurale calcola, ovvero l’errore. La backpropagation viene fatta dopo la \textbf{feed-forward} dei dati per aggiustare l'errore. \\
+La backpropagation ci dice solo in quale \textbf{direzione} il \textbf{gradiente} dovrebbe essere \textbf{aggiornato}.
+
+\section{Learning rate}
+L'algoritmo di backpropagation ci dà solo la \textbf{direzione} del gradiente. Il numero di aggiornamenti è dato dalla moltiplicazione per uno scalare fisso \textbf{learning rate}.
+Un valore del learning rate troppo \textbf{piccolo} può \textbf{rallentare} il processo di training, poiché l'algoritmo di ottimizzazione compie passi molto piccoli verso la soluzione ottimale. D'altro canto, un valore troppo \textbf{alto} può causare \textbf{instabilità} o divergenza del modello
+
+\section{Overfitting}
+Se in fase di training un modello di machine learning predice al $98\%$ il contenuto di un’immagine, e in testing lo stesso modello ha un’accuratezza del $60\%$, o comunque di molto inferiore, possiamo parlare di overfitting.
+In Machine Learning l’overfitting è causato da una serie di fattori:
+\begin{itemize}
+    \item il modello che si desidera creare contiene \textbf{troppi} \textbf{parametri} da individuare, ergo è troppo complesso
+    \item i \textbf{dati} di training sono \textbf{pochi}, o di \textbf{cattiva} \textbf{qualità}.
+\end{itemize}
+Per ovviare a questo problema:
+\begin{itemize}
+    \item \textbf{semplificazione} del \textbf{modello}: optare per uno con meno parametri, ridurre il numero di attributi del dataset, o limitare l’apprendimento del modello (regularization)
+    \item \textbf{nuova raccolta dati}: aumentare la dimensione del dataset di training
+    \item riduzione rumore: correggere errori di struttura e gestire gli outliers
+\end{itemize}
+
+
+\section{Chain rule}
+La regola della catena è uno strumento molto utile nell'analisi matematica e nell'apprendimento automatico, poiché permette di \textbf{calcolare} facilmente il \textbf{derivato} di \textbf{funzioni complesse}. \\
+Ad esempio, date due funzione derivabili $f$ e $g$ con derivate $f^{'}$ e $g^{'}$, la derivata della funzione composta $h(x) = f(g(x))$ è:
+
+$$h^{'}(x) = f^{'}(g(x)) * g^{'}((x)) =  f^{'}(y) * g^{'}(x)$$
+
+La derivata della \textbf{composizione} di una serie di \textbf{funzione} è il \textbf{prodotto} delle derivate delle \textbf{singole} funzioni.
+
+
+\section{Transfer learning}
+Il transfer learning è una tecnica utilizzata nell'apprendimento automatico per \textbf{trasferire} le \textbf{conoscenze} acquisite da un \textbf{modello} pre-addestrato su un problema a un nuovo problema. In altre parole, il transfer learning permette di riutilizzare un modello pre-addestrato su un problema simile, \textbf{anziché} addestrarne uno \textbf{da zero}, al fine di ridurre i tempi di addestramento e migliorare le prestazioni del modello.
+
+\section{Receptive field}   
+Il campo di ricezione (receptive field) di un neurone è la porzione dello spazio di input che il \textbf{neurone} può ``vedere''. In altre parole, è la regione dello \textbf{spazio} di \textbf{input} che ha un \textbf{effetto} sull'\textbf{output} del neurone.
+
+\section{Cos'è un tensore:}
+Un tensore è un \textbf{array} multidimensionale. Un tensore tipico per immagini 2D  ha $4$ \textbf{dimensioni}:
+$$batchsize \cdot width \cdot height \cdot channels$$
+
+\section{Feature map}
+Una feature map è una \textbf{rappresentazione} di un \textbf{input}, come ad esempio un'immagine, in modo da enfatizzare determinate caratteristiche dell'input che sono rilevanti per una determinata attività. Ad esempio, nel caso di una rete neurale per l'elaborazione delle immagini, la \textbf{feature map} potrebbe \textbf{evidenziare} i \textbf{bordi} e le forme degli oggetti nell'immagine, rendendo più facile per la rete identificare questi oggetti.
+Per una immagine a colori inizialmente abbiamo $r,g,b$.
+
+\section{Pooling layer}
+Il pooling layer è un tipo di strato presente in una rete neurale. Serve a \textbf{ridurre} le \textbf{dimensioni} delle \textbf{immagini} o dei \textbf{dati} in ingresso, rendendo la \textbf{rete} più \textbf{efficiente} e veloce nell'elaborazione delle informazioni. In pratica, il pooling layer opera una sorta di "sottomissione" dei dati, \textbf{scegliendo} i \textbf{valori} più \textbf{importanti} e ignorando quelli meno significativi. Ciò aiuta a \textbf{eliminare} il \textbf{rumore} nei dati e a rendere la rete più resistente agli errori.
+
+\section{Residual learning}
+Il residual learning è una tecnica utilizzata nell'addestramento delle reti neurali. Consiste nell'\textbf{aggiungere} un ulteriore \textbf{strato} di connessioni alla rete, chiamato "\textbf{strato residuo}", che permette alla rete di \textbf{imparare} le \textbf{informazioni} \textbf{mancanti} nei dati in ingresso. In questo modo, la rete è in grado di "\textbf{raddrizzare}" i \textbf{dati} non lineari e di migliorare le prestazioni di apprendimento. Il residual learning è particolarmente utile per le \textbf{reti profonde}, poiché permette di evitare il problema del "\textbf{vanishing gradient}", che impedisce alla rete di imparare in maniera efficiente.
+
+\section{Loss function}
+In generale, una loss function misura il grado di \textbf{accuratezza} con cui un certo \textbf{modello} statistico descrive un set di dati empirici di un certo fenomeno. Per valutare la sua efficacia e performance, usiamo una loss function.
+
+\section{Why classification techniques are vulnerable}
+Le tecniche di classificazione sono soggette a \textbf{vulnerabilità} per diversi motivi. Una delle principali ragioni è che spesso si \textbf{basano} su \textbf{modelli} che sono stati addestrati su \textbf{dati limitati} o non rappresentativi dell'intero spettro di possibili casi. Ciò può portare a risultati \textbf{imprecisi} o addirittura sbagliati quando si cerca di utilizzare il modello per classificare nuovi dati.
+\\
+Inoltre, le tecniche di classificazione possono essere \textbf{influenzate} dall'\textbf{ordine} in cui vengono presentati i dati durante il processo di addestramento. Se i dati vengono presentati in modo non casuale, il modello potrebbe sviluppare una certa \textbf{dipendenza} dall'\textbf{ordine} e non essere in grado di generalizzare correttamente a nuovi dati.
+
+\section{Difference between generative and discriminative
+approaches in machine learning}
+In ambito di apprendimento automatico, i modelli generativi e discriminativi sono due approcci diversi per l'\textbf{addestramento} di \textbf{modelli} di classificazione.
+\\
+Un modello \textbf{generativo} cerca di apprendere una distribuzione probabilistica sui \textbf{dati} di \textbf{input}, ovvero cerca di capire come sono distribuiti i dati all'interno dello spazio di input. Una volta che il modello ha appreso questa distribuzione, può essere utilizzato per \textbf{generare} \textbf{nuove} \textbf{istanze} di dati simili a quelle presenti nel training set.
+ Ad esempio, un modello generativo potrebbe essere utilizzato per generare immagini di animali mai visti prima, basandosi su un training set di immagini di animali reali.
+\\
+Un modello \textbf{discriminativo}, al \textbf{contrario}, cerca di imparare a distinguere tra \textbf{diverse} \textbf{classi} di dati di \textbf{input}. Una volta addestrato, il modello può essere utilizzato per \textbf{prevedere} a quale \textbf{classe} appartiene un nuovo esempio di dati in base alle sue caratteristiche. Ad esempio, un modello discriminativo potrebbe essere utilizzato per prevedere se una persona ha una malattia o no in base ai suoi sintomi.
+\\
+In sintesi, i modelli \textbf{generativi} cercano di capire come sono \textbf{distribuiti} i \textbf{dati} all'interno dello spazio di input e possono essere utilizzati per \textbf{generare} nuove istanze di \textbf{dati}, mentre i modelli \textbf{discriminativi} cercano di \textbf{distinguere} tra \textbf{diverse} \textbf{classi} di dati e possono essere utilizzati per prevedere a quale classe appartiene un nuovo esempio di dati.
+
+\section{Example Neural Network for image processing }
+Una rete neurale per il processing delle immagini ha una struttura del tipo:
+\begin{itemize}
+    \item Una lunga sequenza di \textbf{convolution layer}, organizzata in \textbf{moduli}
+    \item una sequenza di \textbf{dense layer} (2-3) alla \textbf{fine} del training
+\end{itemize}
+Con i \textbf{convolutional layers} \textbf{estraiamo} le \textbf{feature} interessanti dall'immagine di input, generando diverse rappresentazioni. Con i \textbf{dense layer} andiamo ad \textbf{analizzare} queste \textbf{feature} mirando al problema da risolvere (e.g. classification)
+
+\section{Manifold of data}
+Manifold si riferisce alla struttura di base di un insieme di dati. In altre parole, un manifold è la \textbf{rappresentazione} di come i \textbf{dati} sono \textbf{organizzati} nello spazio di input.
+\\
+Ad esempio, immaginiamo di avere un insieme di dati costituito da punti in uno spazio bidimensionale. Se questi \textbf{punti} \textbf{formano} una \textbf{curva}, possiamo dire che la curva è il \textbf{manifold} dei dati. Se invece i punti formano una rete di punti distribuiti in modo \textbf{casuale}, possiamo dire che il \textbf{manifold} dei dati è più \textbf{complesso} e difficile da rappresentare.
+\\
+Il concetto di manifold è importante in apprendimento automatico perché può influire sulla capacità di un modello di \textbf{generalizzare} a nuovi \textbf{dati}. Ad esempio, se il manifold dei dati è lineare, un modello lineare potrebbe essere sufficiente per rappresentare i dati e ottenere buone prestazioni. Se invece il manifold è più \textbf{complesso}, potrebbe essere necessario utilizzare \textbf{modelli} più \textbf{sofisticati}, come reti neurali artificiali, per rappresentare i dati in modo accurato.
+
+\section{Fooling networks}
+Il "fooling" di una rete neurale consiste nel \textbf{fornire} alla rete un'\textbf{immagine} o un input che viene \textbf{interpretato} in modo \textbf{errato} dalla rete stessa, nonostante sia stato progettato per essere riconosciuto correttamente da un essere umano. Ciò può accadere perché la \textbf{rete} neurale ha imparato a \textbf{riconoscere} \textbf{pattern} \textbf{specifici} in modo troppo stretto, il che significa che può essere \textbf{facilmente} \textbf{ingannata} da immagini o input che presentano piccole variazioni rispetto a quelli che ha visto durante il suo processo di apprendimento. \\
+Il fooling di una rete neurale può essere \textbf{utilizzato} per testare la \textbf{robustezza} della \textbf{rete} e per identificare eventuali punti deboli nella sua capacità di riconoscimento.
+
+\section{Latent space}
+Il latent space viene spesso utilizzato in riferimento a uno spazio di rappresentazione nascosto o "latente" all'interno di un modello. Ad esempio, in un modello di autoencoder o di VAE (variational autoencoder), il "latent space" è uno spazio di \textbf{rappresentazione} nascosto che viene utilizzato per \textbf{codificare} l'\textbf{input} in una rappresentazione \textbf{compatta}. Lo scopo del "latent space" è di catturare le caratteristiche principali dei dati in modo da poterli utilizzare per la generazione di nuove campionature o per la classificazione.
+
+\section{Autoenconders}
+L'architettura di un Autoencoder prevede due componenti: \textbf{encoder} e \textbf{decoder}. Il \textbf{primo} riceve i dati in \textbf{input} e ne fornisce una rappresentazione
+\textbf{compressa} o latent space representation. Il \textbf{decoder} riceve in input la versione \textbf{compressa} del dato e lo \textbf{riproduce} con il minor errore possibile.\\
+Esso è una rete allenata a \textbf{ricostruire} \textbf{dati} in \textbf{input} imparando dalla rappresentazione interna. Solitamente essa ha una \textbf{dimensione} in input \textbf{più} \textbf{piccola}.
+
+\section{What Autoencoders can do}
+Non molto utili per comprimere dati, per la perdita naturale. ma per:
+\begin{itemize}
+    \item data denoising
+    \item anomaly detection
+    \item feature extraction (generalization of PCA)
+    \item generative models (VAE)
+\end{itemize}
+Especially, an amusing and simple to understand topic.
+
+\section{Compression}
+La "compressione" in machine learning si riferisce all'utilizzo di \textbf{tecniche} per \textbf{ridurre} la quantità di \textbf{dati} che un modello di apprendimento automatico deve elaborare. Ciò può essere utile per \textbf{migliorare} le \textbf{prestazioni} del modello, ad esempio aumentando la \textbf{velocità} di \textbf{addestramento} o rendendo il modello più facile da utilizzare su dispositivi con risorse limitate. Se l'input ha una \textbf{struttura} molto \textbf{casuale} (entropia alta) allora la \textbf{compressione} \textbf{non} è \textbf{possibile}.
+\\
+Esistono diverse tecniche di compressione che possono essere utilizzate in machine learning, ad esempio:
+\\
+\begin{itemize}
+    \item \textbf{Compressione dei dati}: si tratta di ridurre la quantità di dati di input utilizzati dal modello, ad esempio eliminando duplicati o dati non rilevanti.
+    \item \textbf{Compressione del modello}: consiste nel ridurre il numero di parametri o la complessità del modello stesso, ad esempio utilizzando modelli più piccoli o semplificando la struttura del modello.
+    \item \textbf{Compressione delle feature}: si tratta di ridurre il numero di variabili di input utilizzate dal modello, ad esempio eliminando variabili non rilevanti o utilizzando una rappresentazione più compatta delle feature.
+\end{itemize}
+
+\section{Anomaly detection}
+L'anomaly detection, o rilevamento di anomalie, è una tecnica utilizzata per \textbf{individuare} \textbf{elementi} che si \textbf{discostano} in modo significativo da un \textbf{modello} o da una tendenza stabilita. In altre parole, si tratta di un processo che cerca di \textbf{identificare} eventi o \textbf{dati} \textbf{atipici} all'interno di un insieme di dati.
+
+Esistono diversi metodi per effettuare il rilevamento di anomalie, tra cui:
+\begin{itemize}
+    \item \textbf{Modelli di distribuzione}: si basano sulla definizione di una distribuzione \textbf{probabilistica} dei dati e sulla individuazione di punti che si discostano significativamente da essa.
+    \item \textbf{Algoritmi di apprendimento supervisionato}: si basano sull'utilizzo di un set di dati di allenamento per costruire un modello che può essere utilizzato per \textbf{classificare} i \textbf{dati} in categorie predefinite (ad esempio, anomali o normali).
+    \item \textbf{Algoritmi di clustering}: si basano sulla suddivisione dei dati in \textbf{gruppi} \textbf{omogenei} (cluster) in base a determinate caratteristiche, individuando poi gli elementi che non appartengono a nessun cluster o che si discostano significativamente dai cluster vicini.
+\end{itemize}
+
+
+
+
+
+
+\section{Latent encoding}
+L'encoding latente consiste nel \textbf{mappare} un \textbf{dato} o un'informazione in un insieme di \textbf{caratteristiche} \textbf{nascoste} che possono essere utilizzate per rappresentare il dato in modo più \textbf{efficiente} o per eseguire operazioni di machine learning.
+\\
+L'encoding latente viene spesso utilizzato in tecniche di machine learning come le reti neurali ricorrenti (RNN) o le reti generative profonde (GAN). In questi casi, le \textbf{caratteristiche} latenti vengono \textbf{apprese} dai dati \textbf{durante} il processo di \textbf{addestramento} del modello e possono essere \textbf{utilizzate} per eseguire diverse operazioni, ad esempio la \textbf{generazione} di nuovi \textbf{dati} o la classificazione di dati di test.
+I valori latenti sono i valori significativi delle feature, essi rendono più facile il rilevamento di errori osservando dei valori latenti anomali.
+
+\section{Convolutional Neural Network (CNN)}
+Essa infatti è costituita da  un blocco di \textbf{input}, uno o più blocchi nascosti (\textbf{hidden layer}), che effettuano calcoli tramite \textbf{funzioni} di \textbf{attivazione} (ad esempio \textbf{RELU})  e un blocco di output che effettua la classificazione vera e propria. La \textbf{differenza}, infatti,  rispetto alle classiche reti feed forward è rappresentata dalla \textbf{presenza} dei \textbf{livelli} di \textbf{convoluzione}.\\
+A differenza pertanto di una feed forward tradizionale che lavora “sull’informazione generale dell’immagine”  una \textbf{CNN} lavora e classifica l’immagine \textbf{basandosi} su \textbf{particolari caratteristiche} della stessa.
+
+
+\section{U-Net (FCN Fully Convolutional Network)}
+In sintesi, l’architettura di una U-Net è costiuita da:
+\begin{itemize}
+    \item Un \textbf{encoder} che \textbf{riduce} (down-sample) l’\textbf{immagine} in ingresso in una feature map, attraverso pooling layers, estraendone gli elementi chiave
+    \item Un \textbf{decoder} che \textbf{amplifica} (up sample) la \textbf{feature map} in una immagine, usando i livelli di deconvoluzione, impiegando cioè i pooling layers appresi per permettere la localizzazione degli elementi.
+\end{itemize}
+
+\section{Deep Object Detection approce}
+Esistono diverse architetture di Convolution Network Neural (CNN) che possono essere utilizzate per il \textbf{rilevamento} degli oggetti profondi, ad esempio:
+\begin{itemize}
+    \item Reti di rilevamento degli oggetti basate su \textbf{regioni di interesse} (R-CNN): in questo caso, la CNN viene utilizzata per individuare regioni di interesse nell'immagine, che vengono poi analizzate in modo più dettagliato per identificare gli oggetti.
+    \item Reti di rilevamento degli oggetti basate sulla \textbf{condivisione delle feature} (Fast R-CNN): in questo caso, la CNN viene utilizzata per estrarre le feature da diverse regioni dell'immagine, che vengono poi utilizzate per individuare gli oggetti.
+    \item Reti di rilevamento degli oggetti unificate (\textbf{YOLO}): in questo caso, la CNN viene utilizzata per individuare gli oggetti direttamente nell'immagine, senza la necessità di analizzare le regioni di interesse in modo separato.
+\end{itemize}
+
+
+
+
+\section{YOLO}
+Il concetto è di \textbf{ridimensionare} l’\textbf{immagine} in modo da ricavarne una griglia di quadrati. YOLO fa \textbf{predizioni} su 3 \textbf{diverse} \textbf{scale}, riducendo l’immagine rispettivamente di 32, 16 e 8.\\
+Queste griglie, a loro volta, prevedono le \textbf{coordinate} del riquadro di delimitazione B relative alle coordinate della cella, nonché il nome dell'elemento e la \textbf{probabilità} che l'oggetto sia presente nella cella. A causa del fatto che molte celle predicono lo stesso elemento con varie previsioni del riquadro di delimitazione, questa tecnica \textbf{riduce} notevolmente il \textbf{calcolo} perché sia il rilevamento che il \textbf{riconoscimento} sono \textbf{gestiti} dalle \textbf{celle} dell'immagine. Tuttavia, produce molte previsioni \textbf{duplicate}. YOLO lo risolve esaminando i punteggi di \textbf{probabilità} legati a ciascuna \textbf{opzione}.
+
+
+\section{Anchor boxes}
+Le anchor boxes sono utilizzate in alcuni algoritmi di \textbf{rilevamento} degli oggetti per indicare le regioni di un'immagine in cui potrebbe essere presente un \textbf{oggetto}.
+\\
+Le anchor boxes vengono utilizzate in algoritmi di rilevamento degli oggetti basati sulla \textbf{condivisione} delle \textbf{feature}, come le reti di rilevamento degli oggetti basate sulla condivisione delle feature (Fast R-CNN) o le reti di rilevamento degli oggetti unificate (YOLO). In questi casi, le anchor boxes vengono utilizzate per \textbf{selezionare} le \textbf{regioni} dell'immagine che vengono \textbf{analizzate} in modo più \textbf{dettagliato} dal modello di rilevamento degli oggetti.
+\\
+Le anchor boxes possono essere definite in modo statico o dinamico. Nel primo caso, le anchor boxes vengono definite \textbf{prima} dell'\textbf{addestramento} del modello e rimangono \textbf{fisse} durante l'intero processo di addestramento. Nel secondo caso, le anchor boxes vengono definite dinamicamente \textbf{durante} l'\textbf{addestramento} del modello in base alle \textbf{caratteristiche} dei dati.
+
+\section{Objectness score}
+L'objectness score è una misura della \textbf{probabilità} che una determinata regione di un'immagine \textbf{contenga} un \textbf{oggetto}.\\
+Lo score di oggettività viene utilizzato in alcuni algoritmi di rilevamento degli oggetti per determinare quali regioni dell'immagine meritano di essere analizzate in modo più dettagliato. \\
+Lo score viene inolte \textbf{passato} ad una funzione \textbf{sigmoide} per interpretare la \textbf{probabilità}.
+
+\section{Class confidence}
+La class confidences si riferisce alle \textbf{probabilità} assegnate dal \textbf{modello} a ciascuna \textbf{classe} per un dato input. Ad esempio, se il modello è addestrato per riconoscere diverse categorie di animali (ad esempio gatti, cani e uccelli), per un'immagine di un gatto il modello potrebbe assegnare una probabilità del $0,7$ per la classe "gatto", una probabilità del $0,2$ per la classe "cane" e una probabilità del $0,1$ per la classe "uccello". In questo caso, il modello ha una "alta confidenza" nella classe "gatto" per questo input.
+
+\section{YOLO’s loss function}
+Nel caso di YOLO, la funzione di perdita viene calcolata utilizzando una \textbf{combinazione} di due diverse \textbf{funzioni} di \textbf{perdita}: la perdita di localizzazione (\textbf{localization loss}) e la perdita di classificazione (\textbf{classification loss}). La perdita di \textbf{localizzazione} viene utilizzata per \textbf{misurare} quanto l'\textbf{output} della rete neurale \textbf{differisce} dalla posizione dell'\textbf{oggetto} nell'immagine, mentre la perdita di \textbf{classificazione} viene utilizzata per misurare quanto l'\textbf{output} della rete neurale \textbf{differisce} dall'\textbf{etichetta} della classe dell'oggetto. La funzione di perdita complessiva viene quindi calcolata come una \textbf{combinazione} \textbf{ponderata} di queste due \textbf{perdite}.
+
+\section{Non Maximum Suppression}
+La Non Maximum Suppression (\textbf{NMS}) è un algoritmo utilizzato per \textbf{rimuovere} le \textbf{sovrapposizioni} tra le regioni di interesse (RoI) all'interno di un'\textbf{immagine}. Viene comunemente utilizzato in combinazione con i sistemi di rilevamento degli oggetti basati sull'intelligenza artificiale, come ad esempio YOLO (You Only Look Once), per individuare gli oggetti all'interno di un'immagine e tracciare i loro contorni.
+\\
+In pratica, la NMS viene utilizzata per \textbf{rimuovere} le \textbf{regioni} di interesse che sono troppo \textbf{simili} tra loro o che si \textbf{sovrappongono} in modo significativo. Ciò è importante perché può evitare la doppia conta degli oggetti e garantire una maggiore accuratezza nel rilevamento degli oggetti.
+\\
+Per utilizzare la NMS, il sistema di rilevamento degli oggetti prima \textbf{individua} tutte le \textbf{regioni} di interesse all'interno dell'immagine e quindi utilizza l'algoritmo di NMS per selezionare solo le regioni di interesse più significative, \textbf{eliminando} quelle che sono troppo \textbf{simili} o che si sovrappongono in modo significativo.
+
+\section{Generative model}
+Un modello generativo è un \textbf{modello} che è in grado di \textbf{generare} nuove \textbf{output}, come ad esempio parole, frasi, immagini o suoni, a partire da un input. I modelli generativi sono spesso utilizzati in campi come il machine learning e l'intelligenza artificiale, dove possono essere utilizzati per \textbf{prevedere} il \textbf{comportamento} di un sistema o per creare contenuti sintetici.\\
+Essi provano a imparare la distribuzione dei dati imparando dagli esempi disponibili.
+
+\section{Multi-modal output}
+Output multi-modale si riferisce a un \textbf{output} che viene \textbf{generato} o prodotto attraverso più modalità o \textbf{canali}. Ad \textbf{esempio}, un sistema di intelligenza artificiale potrebbe generare un output multi-modale che \textbf{include} sia un'\textbf{immagine} che un \textbf{testo}, oppure una combinazione di parole, suoni e movimenti. Un output multi-modale può essere utilizzato per fornire informazioni in modo più completo e coinvolgente, rendendo più facile per gli utenti comprendere e interpretare l'output del sistema.
+
+\section{Latent variable models}
+I modelli a variabili latenti sono modelli che tentano di \textbf{spiegare} la \textbf{relazione} tra una o più \textbf{variabili} osservate e una o più variabili nascoste o latenti. Le variabili latenti sono considerate "nascoste" perché \textbf{non} sono \textbf{direttamente} \textbf{osservabili}, ma possono essere inferite a partire dalle osservazioni. Ad esempio, in un modello a variabili latenti potrebbe essere osservata solo la quantità di tempo che una persona trascorre sui social media, mentre la variabile latente potrebbe essere il livello di dipendenza dai social media di quella persona.
+
+\section{Generative models}
+I modelli generativi sono modelli che sono in grado di generare nuove output, come ad esempio parole, frasi, immagini o suoni, a partire da un input.\\
+alcune delle principali \textbf{classi} di \textbf{modelli} generativi sono:
+\begin{itemize}
+\item \textbf{compressive models}
+\begin{itemize}
+    \item Variational Autoencoders (VAEs)
+    \item Reti neurali generative (GAN): utilizzate per generare immagini, suoni e altre forme di dati utilizzando una rete neuronale.
+\end{itemize}
+    \item \textbf{dimension preserving models}
+    \begin{itemize}
+        \item Normalizing Flows
+        \item Denoising Diffusion Models
+    \end{itemize}
+\end{itemize}
+
+\section{VAE (Variation AutoEnconder)}
+Il Variational Autoencoder (VAE) è un tipo di \textbf{modello} di rete neuronale generativa utilizzato per \textbf{generare} nuove \textbf{output}, come ad esempio immagini, a partire da un input. Il VAE funziona utilizzando una tecnica chiamata "\textbf{codifica} e \textbf{decodifica}" per \textbf{apprendere} la \textbf{distribuzione} di probabilità dei dati di input e quindi generare nuove osservazioni che seguono la stessa distribuzione.\\
+Caratteristica fondamentale dei VAE `e l’obiettivo di \textbf{creare} una \textbf{rappresentazione}
+\textbf{latente} del \textbf{dataset} utilizzato per la calibrazione (o training) della rete, tale per cui
+per ogni punto del dataset X esista una configurazione delle variabili latenti che porta il
+modello a generare qualcosa di simile ad $X$.
+
+
+\section{GAN (Generative Adversarial Networks)}
+La GAN è composta da \textbf{due reti neurali} artificiali: il network \textbf{generatore} e quello \textbf{discriminatore}. Entrambe sono \textbf{reti} neurali \textbf{convoluzionali}. Come in tutte le reti neurali artificiali, anche in ciascuno dei due network che compongono la GAN l’elaborazione procede a \textbf{livelli} di \textbf{astrazione} progressiva, dai più semplici ai più complessi: l’\textbf{output} del livello \textbf{precedente} diventa l’\textbf{input} di quello \textbf{successivo}.\\
+I due network vengono messi in \textbf{competizione} tra \textbf{loro}, in un gioco a somma zero: l’obiettivo del \textbf{generatore} è \textbf{ingannare} il \textbf{discriminatore}, che a propria volta è programmato per controllare e scoprire le immagini false. Le loro funzioni-obiettivo sono opposte: una vince, l’altra perde. Ma i \textbf{feedback} sono ovviamente \textbf{collegati} tra loro: il \textbf{generatore migliora} la produzione di immagini sulla base dei \textbf{riscontri} del \textbf{discriminatore}, che a propria volta raffinerà i propri mezzi di detection.
+
+
+\section{Normalizing Flows}
+I Normalizing Flows sono una \textbf{classe} di \textbf{modelli} di machine learning che sono stati progettati per rappresentare \textbf{distribuzioni} di \textbf{probabilità} \textbf{complesse} in modo efficiente. In particolare, i Normalizing Flows utilizzano una serie di trasformazioni deterministiche per \textbf{mappare} una distribuzione di \textbf{probabilità} \textbf{semplice}, nota come distribuzione di base, su una distribuzione di probabilità \textbf{complessa}.\\
+\begin{itemize}
+    \item \textbf{pro} Consente di ottenere una computazione con probabilità logaritmica
+    \item \textbf{Contro}: Limita l'espressività del modello
+\end{itemize}
+
+\section{Diffusion model}
+In sintesi, i modelli di diffusione possono essere utilizzati in machine learning per \textbf{prevedere} il comportamento di una \textbf{caratteristica} o di un fenomeno in un sistema dinamico, per identificare i fattori che influiscono sulla diffusione di una caratteristica o di un fenomeno e per \textbf{costruire} \textbf{modelli} di simulazione di sistemi \textbf{dinamici}.
+
+\section{The problem with the deterministic autoencoder}
+Un \textbf{problema} comune con gli autoencoder deterministici è che possono avere \textbf{difficoltà} a \textbf{rappresentare} \textbf{distribuzioni} di probabilità complesse in modo efficiente. Ciò significa che potrebbero essere meno accurati nella rappresentazione di dati rispetto ai modelli che utilizzano distribuzioni di probabilità per rappresentare i dati, come i modelli di generative adversarial networks (GAN) o i Normalizing Flows.
+\\
+Inoltre, gli \textbf{autoencoder} deterministici tendono a essere \textbf{meno robusti} alle \textbf{perturbazioni} nei dati di input rispetto ai modelli basati su distribuzioni di probabilità. Ciò significa che potrebbero essere \textbf{meno affidabili} nel caso in cui ci siano \textbf{rumori} o variazioni nei dati di input.
+\\
+Infine, gli autoencoder deterministici possono avere difficoltà a generalizzare a dati nuovi o sconosciuti, poiché non hanno la capacità di rappresentare incertezza o variabilità nei dati. Ciò può limitare la loro capacità di fare previsioni accurate su dati che non sono stati visti durante il processo di addestramento.
+
+\section{Problems with VAE}
+\begin{itemize}
+    \item bilanciamente della probabilità logaritmica e \textbf{regolarizzazione} KL nella loss function
+    \item collasso delle variabili
+    \item marginal inference vs prior mismatch
+    \item blurriness (aka variance loss)
+\end{itemize}
+
+\section{Problems with Gans}
+Ci sono alcuni problemi potenziali che possono insorgere quando si utilizzano i GAN:
+\begin{itemize}
+    \item \textbf{Instabilità dell'addestramento}: i GAN possono essere difficili da addestrare perché l'obiettivo di ottimizzazione coinvolge un gioco minimax a due giocatori. Ciò può portare a un addestramento instabile, in cui il generatore e il discriminatore possono rimanere bloccati in un equilibrio subottimale o oscillare tra diverse soluzioni.
+    \item \textbf{mode collapse}: i GAN possono soffrire di collasso dei modi, in cui il generatore produce solo un numero limitato di modi o variazioni dei dati, anziché catturare la piena diversità dei dati di formazione.
+    \item \textbf{Spazi ad alta dimensione}: i GAN possono essere difficili da utilizzare in spazi ad alta dimensione, come le immagini, perché il generatore e il discriminatore possono avere difficoltà a imparare la struttura complessa dei dati.
+\end{itemize}
+
+
+
+
+
+\section{RRN (Recurrent Neural Networks)}
+Le reti neurali ricorrenti (RNN) sono un tipo di rete neurale artificiale che è particolarmente adatta per l'\textbf{elaborazione} di \textbf{sequenze} di \textbf{dati}. Sono chiamate "ricorrenti" perché utilizzano feedback interni che \textbf{permettono} loro di "\textbf{ricordare}" le \textbf{informazioni} per un certo periodo di tempo.\\
+Sono in grado di prendere in input una sequenza di dati, come una serie di parole in una frase o una sequenza di frame di un video, e di utilizzare le informazioni presenti in questi dati per fare previsioni o classificare l'input.\\
+Una delle caratteristiche distintive delle RNN è la loro capacità di "memorizzare" le informazioni per un certo periodo di tempo, utilizzando uno stato nascosto che viene aggiornato ad ogni passo della sequenza. Ciò le rende ideali per l'\textbf{elaborazione} di \textbf{sequenze} di \textbf{dati} in cui l'ordine è importante, come nel \textbf{linguaggio naturale} o nella generazione di musica.
+
+\section{LSTM (Long Short Term Memory networks)}
+Uno dei vantaggi principali delle LSTM è la capacità di apprendere da \textbf{lunghe sequenze} temporali e \textbf{conservarne la memoria}.\\
+L’idea alla base dell’architettura LSTM è quella che ad ogni time step alcuni gate sono utilizzati per controllare il passaggio di informazioni lungo le sequenze che sono in grado di catturare \textbf{dipendenze} sul \textbf{lungo termine} più accuratamente. In una LSTM, ad ogni step,\textbf{ l’hidden state} è \textbf{aggiornato} dallo stesso dato al time step, dall’hidden state al \textbf{precedente} time step, dall’input gate, dal forget gate, dall’output gate e da una cella di memoria.
+
+\section{Attention}
+L'attenzione in machine learning è un concetto che si riferisce alla \textbf{capacità} di un modello di \textbf{prestare} \textbf{attenzione} a specifici elementi di un'\textbf{input} durante il processo di apprendimento o di elaborazione delle informazioni.\\
+
+Un modello che utilizza l'attenzione può \textbf{concentrarsi} su \textbf{determinati} \textbf{elementi} dell'input in modo più accurato e dettagliato, rispetto a un modello che tratta tutti gli elementi dell'input allo stesso modo. Ciò può aiutare il modello a fare \textbf{previsioni} o \textbf{classificazioni} più \textbf{accurate}, soprattutto in caso di input complessi o astratti.\\
+
+L'attenzione viene spesso utilizzata in \textbf{combinazione} con le reti neurali ricorrenti (\textbf{RNN}) per consentire al modello di prestare attenzione a specifici elementi di una sequenza di dati nel tempo. Ad esempio, in un modello di traduzione automatica, l'attenzione può essere utilizzata per fare in modo che il modello presti maggiore attenzione alle parole chiave della frase di origine durante la traduzione.
+
+\section{Attention: the key-value approach}
+Il concetto di "Attention: the key-value approach" può essere tradotto come "Attenzione: l'approccio \textbf{chiave-valore}". Si tratta di una tecnica utilizzata in alcuni modelli di intelligenza artificiale, in particolare nei modelli di linguaggio, per implementare l'attenzione a sé stessi (self-attention).
+\\
+L'approccio chiave-valore consiste nell'utilizzo di due \textbf{vettori}, chiamati "chiave di attenzione" (\textbf{attention key}) e "valore di attenzione" (\textbf{attention value}), per calcolare l'importanza di ogni parola o sequenza di parole nell'input e trasformare le informazioni contenute nell'input in un formato che può essere utilizzato dal modello.
+\\
+La chiave di attenzione è un \textbf{vettore} di \textbf{pesi} che viene utilizzato per \textbf{calcolare} la "punteggiatura" di attenzione (\textbf{attention score}) per ogni parola o sequenza di parole. Il valore di attenzione è un vettore di trasformazione che viene utilizzato per trasformare le informazioni contenute nell'input in un formato utilizzabile dal modello.
+\\
+La punteggiatura di attenzione viene calcolata utilizzando la chiave di attenzione e il valore di attenzione insieme, e viene utilizzata per \textbf{determinare} l'\textbf{importanza} di ogni parola o sequenza di parole per il modello. In questo modo, il modello può prestare maggiore attenzione alle parole o alle frasi più rilevanti per il significato del testo e fare previsioni più accurate.
+
+\section{Multi head attention}
+Il concetto di base dell'attenzione multipla è quello di utilizzare più "teste di attenzione" per fare \textbf{riferimento} a diverse parti del vettore di \textbf{input} in modo \textbf{indipendente}. Ognuna di queste teste di attenzione può essere vista come un modello di attenzione separato che cerca di \textbf{catturare} \textbf{relazioni} \textbf{diverse} tra gli elementi del vettore. Il risultato finale dell'attenzione multipla è quindi ottenuto dall'\textbf{aggregazione} dei \textbf{risultati} delle diverse teste di attenzione.
+\\
+L'utilizzo dell'attenzione multipla può essere utile in molti casi, ad esempio per \textbf{catturare} \textbf{relazioni} tra parole in un testo che potrebbero essere trascurate da un \textbf{modello} di attenzione \textbf{tradizionale}, che considera solo una parte del testo alla volta. Inoltre, l'utilizzo di diverse teste di attenzione permette di catturare relazioni diverse tra gli elementi del vettore, il che può essere particolarmente \textbf{utile} in casi in cui il \textbf{vettore} di input è \textbf{complesso} o contiene informazioni di diverse nature.
+
+
+\section{Gating function}
+Le funzioni di ingate (o "gating functions") sono una tecnica utilizzata in machine learning per \textbf{gestire} l'\textbf{informazione} all'interno di un \textbf{modello}. Sono spesso utilizzate nelle reti neurali ricorrenti (RNN) per \textbf{controllare} quali \textbf{informazioni} vengono \textbf{trasmesse} da un passo all'altro nella sequenza di dati e quali invece vengono dimenticate.\\
+
+Le funzioni di ingate utilizzano una serie di valori di "gate" per determinare quali informazioni vengono trasmessi e quali invece vengono ignorati. Ad esempio, in una rete neurale \textbf{LSTM} (Long Short-Term Memory), ci sono \textbf{tre porte} di ingate: l'ingate di input (input gate), l'ingate di dimenticanza (forget gate) e l'ingate di uscita (output gate). Ognuna di queste porte utilizza una \textbf{funzione} di ingate per \textbf{determinare} quali informazioni vengono \textbf{trasmessi} o \textbf{ignorati} durante il processo di elaborazione della sequenza di dati.\\
+
+Le funzioni di ingate sono utilizzate per \textbf{gestire} l'\textbf{informazione} nel tempo e per fare in modo che il modello presti maggiore attenzione agli elementi più importanti dell'input durante il processo di elaborazione. 
+
+\section{Squeeze and excitation}
+Uno strato di riduzione spaziale (SE, dall'inglese Squeeze-and-Excitation) è un tipo di strato utilizzato in alcuni modelli di deep learning per \textbf{aumentare} la \textbf{capacità} di un modello di \textbf{concentrarsi} su elementi specifici dell'input.\\
+
+Uno strato SE consiste in \textbf{due parti}: una parte di "pressione" (squeeze) e una parte di "eccitazione" (excitation). La parte di \textbf{pressione} utilizza una \textbf{funzione} di riduzione per \textbf{comprimere} le informazioni presenti nell'input in uno spazio di dimensioni ridotte. La parte di \textbf{eccitazione} utilizza quindi queste \textbf{informazioni} compresse per \textbf{determinare} quali elementi dell'input meritano maggiore \textbf{attenzione}.\\
+
+Gli strati SE vengono spesso utilizzati in combinazione con le reti neurali convoluzionali per consentire al modello di prestare maggiore attenzione alle caratteristiche più importanti dell'input.
+
+
+\section{Transformer}
+I transformer sono composti da diverse componenti, come le seguenti:
+\begin{itemize}
+    \item \textbf{Encoder}: è responsabile di codificare l'input in una rappresentazione a basso livello.
+    \item \textbf{Decoder}: è responsabile di decodificare la rappresentazione dell'encoder e di produrre l'output desiderato.
+    \item \textbf{Moduli di attenzione}: sono responsabili di calcolare i pesi di attenzione che indicano l'importanza di ogni elemento dell'input rispetto agli altri.
+    \item \textbf{Strati di feed-forward}: sono strati di reti neurali standard che elaborano l'input in modo sequenziale.
+    \item \textbf{Strati di normalizzazione}: sono responsabili di normalizzare i valori dell'input in modo da evitare il problema dell'esplosione del gradiente.
+    \item \textbf{Strati di addizione e moltiplicazione}: sono responsabili di combinare i risultati degli altri strati in modo da ottenere l'output finale.
+\end{itemize}
+
+\end{document}
