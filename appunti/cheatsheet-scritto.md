@@ -2,8 +2,6 @@
 - Simulazione di metà corso
 - Scritto del 2023-02-12
 - Scritto del 2022-12-21
-
-## TODO
 - Scritto del 2023-01-16
 
 # General tips
@@ -26,11 +24,17 @@ La risposta più lunga e dettagliata solitamente è la corretta, è più importa
 - È una tecnica di apprendimento ad "ensemble" basata su di una combinazione di alberi di decisione
 
 # Naive Bayes
-- Si suppone (ingenuamente) che le features siano indipendenti tra loro
 - Numero di parametri = $num_classi + num_classi * num_features$
+- È una tecnica di tipo generativo, in queanto cerca di determinare la distribuzione delle varie categorie dei dati
+- Si suppone (ingenuamente e per semplicità) che le features siano indipendenti tra loro
+- Fornisce un modo computazionale efficiente per approssimare la distribuzione congiunta di probabilità delle features
+- (ERRATA) Non può essere utilizzata se le features non sono tra loro indipendenti, date le classi (Errata per il "date le classi nella frase")
 
 # Apprendimento supervisionato
 - Apprendimento di funzioni basato su esempi di training composti da coppie input-output
+- Può comprendere sia problemi di regressione che di classificazione
+- La definizione della ground truth può richiedere l'intervento umano ed essere onerosa
+- NON richiede la costante supervisione di un esperto durante il training
 
 # Backpropagation
 - Si effettua solo durante il "training", non nella fase di "inference" (calcolo in avanti)
@@ -38,14 +42,9 @@ La risposta più lunga e dettagliata solitamente è la corretta, è più importa
 - È l'algoritmo per il calcolo della derivata parziale della loss rispetto a ogni parametro della rete
 - L'algoritmo calcola il gradiente un layer alla volta, sfruttando la regola matematica per la derivazione di funzioni composte
 - Si riduce a semplici calcoli algebrici facilmente parallelizzabili in strutture di calcolo tipo GPU
+- Richiede la memorizzazione delle attivazioni di tutti i neuroni della rete durante la forward pass
 - (ERRATA) Viene effettuata unicamente lungo le skip connections delle reti residuali, per evitare perdita del gradiente
 - (ERRATA) Tipicamente, il gradiente viene artificialmente rinforzato ad ogni layer attraversato per contrastare il fenomeno della sua scomparsa (vanishing)
-
-# Neurone artificiale
-- Il numero di parametri è lineare nella dimensione dei suoi input
-- Tipicamente calcola una combinazione lineare dei suoi input, seguita dalla applicazione di una funzione di attivazione NON lineare
-- NON può apprendere qualunque funzione dei suoi input
-- Può apprendere ANCHE funzioni lineari, ma non solo
 
 # Learning rate
 - Un learning rate alto tipicamente velocizza il training ma potrebbe saltare sopra al minimo
@@ -54,23 +53,31 @@ La risposta più lunga e dettagliata solitamente è la corretta, è più importa
 - NON è una metrica che misura la capacità di apprendimento del modello
 
 # Gradiente
-- La scomparsa del gradiente (progressiva diminuzione della sua intensità) è dovuta a backpropagation in reti profonde
-- La scomparsa del gradiente (progressiva diminuzione della sua intensità) NON è dovuta a dati troppo rumorosi
-- La scomparsa del gradiente (progressiva diminuzione della sua intensità) NON è dovuta a dati malamente processati
-- La scomparsa del gradiente (progressiva diminuzione della sua intensità) NON è dovuta a troppi pochi dati di trainig a disposizione
-- La scomparsa del gradiente (progressiva diminuzione della sua intensità) NON è dovuta a training eccessivamente lungo
 - Ridurre la dimensione del minibatch AIUTA ad uscire da minimi locali
 - Aumentare il learning rate AIUTA ad uscire da minimi locali
 - Aggiungere un "momento" al gradiente, cioè parte del gradiente del passo precedente AIUTA ad uscire da minimi locali
 - Fare clipping del gradiente in un range prefissato NON AIUTA ad uscire da minimi locali
 - La tecnica della discesa del gradiente potrebbe convergere ad un minimo locale
 - Il risultato della tecnica di discesa del gradiente dipende dalla inizializzazione dei parametri del modello
+- È opportuno decrementare il learning rate verso la fine dell'apprendimento
+- (ERRATA) Può essere applicata solo se la funzione da minimizzare ha una superficie concava
+
+# Scomparsa del gradiente (vanishing gradient)
+- La scomparsa del gradiente (progressiva diminuzione della sua intensità) è dovuta a backpropagation in reti profonde
+- La scomparsa del gradiente (progressiva diminuzione della sua intensità) NON è dovuta a dati troppo rumorosi
+- La scomparsa del gradiente (progressiva diminuzione della sua intensità) NON è dovuta a dati malamente processati
+- La scomparsa del gradiente (progressiva diminuzione della sua intensità) NON è dovuta a troppi pochi dati di trainig a disposizione
+- La scomparsa del gradiente (progressiva diminuzione della sua intensità) NON è dovuta a training eccessivamente lungo
+- Se il gradiente tende a zero i parametri non sono più aggiornati e la rete smette di apprendere
+- Il problema è mitigato dall'uso di link residuali all'interno della rete
+- Il problema è fortemente attenuato dall'uso di ReLU (o sue varianti) come funzione di attivazione per i livelli nascosti della rete
 
 # Dimensione MiniBatch
 - AUMENTANDO la dimensione del minibatch durante il training la backpropagation è effettuata con MENO frequenza ma l'aggiornamento dei parametri è PIÙ accurato
 - DIMINUENDO la dimensione del minibatch durante il training la backpropagation è effettuata con PIÙ frequenza ma l'aggiornamento dei parametri è MENO accurato
 
 # Entropia
+> È una misura del grado di disordine della variabile aleatoria
 $$H(X) = -\sum_{i=1}^n P(X=i) \log_2{P(X=i)}$$
 - Aggiungere alla funzione obiettivo una componente tesa ad AUMENTARE l'entropia ha l'effetto di ridistribuire la probabilità in modo più bilanciato tra tutte le classi
 - Aggiungere alla funzione obiettivo una componente tesa a DIMINURE l'entropia ha l'effetto di focalizzare le scelte sui casi più probabili
@@ -82,7 +89,7 @@ $$H(X) = -\sum_{i=1}^n P(X=i) \log_2{P(X=i)}$$
 $$H(P, Q) = -\sum_{i=1}^n P(X=i) \log_2{Q(X=i)}$$
 - NON è simmetrica
 - È uguale alla divergenza di Kullback-Leibler $KL(P, Q)$ più l'entropia $H(P)$ di $P$
-- Misura la loglikelihood di $Q$ data la distribuzione $P$
+- Misura la loglikelihood di $Q$ data la distribuzione $P$ (attenzione all'ordine!)
 - Ha un valore MINIMO quando $P = Q$
 
 # Mutua Informazione (Information Gain per alberi di decisione)
@@ -134,11 +141,11 @@ Where $\alpha_i$ is the number of $i$ in the sequence and $c_{a_i}$ is a combina
     - Maximum Likelihood Estimate del dado normale: $1/6 \cdot 1/6 = 1/36$
     - Maggiore nel primo caso, quindi è più probabile che sia il dato truccato
 
-# Derivata della funzione logistica
-$$\frac{d}{dx} \sigma(x) = \sigma(x) \cdot (1 - \sigma(x))$$
-
 # Modelli generativi
-- Modelli che cercano di apprendere la distribuzione di probabilità dei dati
+> Modelli che cercano di apprendere la distribuzione di probabilità dei dati
+- Generative Adversarial Networks (GAN), Variational AutoEncoders (VAE) e Diffusion Models sono esempi di tecniche generative profonde
+- Un tipico esempio di questa tecnica è il NAIVE BAYES
+- NON sono modelli meta-teorici rivolti alla automatizzazione della generazione di reti neurali
 - NON è il processo che automatizza la generazione di reti neurali
 - NON è l'uso di attacchi avversariali allo scopo di aumentare la robustezza dei modelli
 - NON è l'applicazione di tecniche genetiche al deep learning
@@ -148,10 +155,25 @@ $$\frac{d}{dx} \sigma(x) = \sigma(x) \cdot (1 - \sigma(x))$$
 - NON tecniche tipiche di unsupervised learning che tentano di separare i dati in cluster distinti
 - NON tecniche che cercano di discriminare i dati in base alle diverse distribuzioni di probabilità delle varie classi
 - NON tecniche che cercano di indentificare gli outliners all'interno del dataset
+- NON sono tipicamente meno espressive delle tecniche generative
+- NON si applicano per lo più in ambito di apprendimento non supervisionato
+- NON cercano di determinare le distribuzioni di probabilità delle varie classi di dati
 
 # AlexNet
 - È la prima rete convoluzionale PROFONDA vincitrice della ImageNet competition
 - Realizzata nel 2012
+
+# Regressione Lineare
+- NON cerca di determinare un iperpiano di separazione tra due categorie di dati
+- Il problema di ottimizzazione ammette una soluzione in forma chiusa
+- La funzione di loss è tipicamente una distanza quardatica tra i valori predetti e quelli osservati
+- Cerca di stabilire una relazione tra i valori di una variabile di output e i valori di una o più features di input
+
+# Classificazione lineare
+- Potrebbe non fornire risultati soddifacenti quando la classificazione dipende da un confronto tra le features
+    - Se esiste una elevata correlazione tra le features NON importa
+    - Se non tutte le features non sono rilevanti ai fini della classificazione NON importa
+    - Se le features sono indipendenti tra loro, data la classe, NON importa
 
 # Regressione logistica
 - I parametri del modello sono tipicamente calcolati mediante discesa del gradiente
@@ -162,21 +184,25 @@ $$\frac{d}{dx} \sigma(x) = \sigma(x) \cdot (1 - \sigma(x))$$
 - La probabilità della predizione cresce se ci sia allontana dalla superficie tra le classi
 - Nel caso di una classificazione binaria, la superficie di confine tra le classi è un iperpiano
 - Potrebbe essere in difficoltà quando la classificazione dipende da un confronto tra le features
+- Permette di associare una probabilità alla predizione della classe
 - NON ci sono problemi quando non tutte le features di input sono rilevanti ai fini della classficazione
 - NON ci sono problemi quando esiste una elevata correlazione tra le features
 - NON ci sono problemi quando le feature sono indipendenti tra loro, data la classe
 
 # Regressione multinomiale
 - Il peso con cui è valutata ogni feature è tipicamente diverso per ogni classe
-- Il peso delel features indica la loro importanza ai fini della classificazione
+- Il peso delle features indica la loro importanza ai fini della classificazione
 - Per $n$ features e $m$ classi, il numero di parametri del modello è $n \cdot m + m$
+- Per $n$ features e $m$ classi, il numero di parametri del modello cresce come $O(nm)$
 - Per ogni input, NON È GARANTITO che esista almeno una classe con probabilità $> 0.5$
+- (ERRATA) I pesi delle features sono sempre tutti positivi, i bias possono essere negativi
 
-# Regressione Lineare
-- NON cerca di determinare un iperpiano di separazione tra due categorie di dati
-- Il problema di ottimizzazione ammette una soluzione in forma chiusa
-- La funzione di loss è tipicamente una distanza quardatica tra i valori predetti e quelli osservati
-- Cerca di stabilire una relazione tra i valori di una variabile di output e i valori di una o più features di input
+# Derivata della funzione logistica
+$$\frac{d}{dx} \sigma(x) = \sigma(x) \cdot (1 - \sigma(x))$$
+- Tende a $0$ quando $x \rightarrow - \infty$
+- Hai il suo massimo in corrispondenza dello $0$
+- NON è una funzione simmetrica
+- NON è una funzione monotona
 
 # Accuratezza, Precisione e Recall
 - Accuratezza (Accuracy) = Istanze classificate correttamente
@@ -196,7 +222,15 @@ $$\frac{d}{dx} \sigma(x) = \sigma(x) \cdot (1 - \sigma(x))$$
 - La rappresentazione interna (latent space) prodotta dall'encoder ha solitamente una dimensione ridotta rispetto a quella di partenza
 - NON è una rete che codifica sè stessa
 
-# Campo ricettivo di neuroni
+# Neuroni Artificiali
+> Definisce un semplice modello matematico che simula un neurone biologico
+- Tipicamente calcola una combinazione lineare dei suoi input, seguita dalla applicazione di una funzione di attivazione NON lineare
+- Il suo numero di parametri è lineare nel numero dei suoi input
+- NON può apprendere qualunque funzione dei suoi input
+- Può apprendere ANCHE funzioni lineari, ma non solo
+
+# Campo ricettivo di neuroni artificiali (receptive field)
+> Definisce la porzione dell'input che influenza l'attivazione di un determinato neurone
 $$r_{i-1} = s_i \cdot r_i + (k_i - s_i)$$
 - Esempio: Due layer Conv2D con stride 1, il primo con kernel 5x5 e il secondo con kernel 3x3
     - $r_2 = 1$
@@ -205,6 +239,13 @@ $$r_{i-1} = s_i \cdot r_i + (k_i - s_i)$$
 - Dipende quindi da
     - Profondità del layer a cui si trova il neurone
     - Dimensioni e stride dei kernel precedenti
+- Aumenta rapidamente con l'attraversamento di livelli con downsampling
+
+# Transposed Convolutions
+- Possono essere interpretate come convoluzioni normali con stride sub-unitario
+- Sono prevalentemente utilizzate in architetture per Image-to-Image processing, come autoencoders o U-Nets
+- Sono essenzialmente equivalenti alla applicazione di un livello di upsampling seguito da una convoluzione normale
+- NON richiedono la trasposizione dell'input prima di calcolare la convoluzione del Kernel
 
 # Dimensione outupt in Conv2D
 > Nota: Le divisioni sono divisioni intere
@@ -239,10 +280,18 @@ $$number\_parameters = out\_channels * (in\_channels * kernel\_height * kernel\_
 - NON Aggiungono ad ogni livello della rete un encoding posizionale per enfatizzare la posizione realtiva dei tokens
 
 # Funzione Softmax
+- Permette di calcolare/Restituisce una distribuzione di probabilità sulle classi
 - Produce valori compresi nell'intervallo $[0, 1]$
 - Generalizza la funzione logistica al caso multiclasse
 - Per un dato input, la somma dei suoi valori su tutte le classi è sempre 1
-- Permette di calcolare una distribuzione di probabilità sulle classi
+- (ERRATA) Per una data classe, la somma dei suoi valori su tutti gli input è sempre 1 (Attenzione all'ordine!)
+
+# Funzione ReLU
+> $ReLU(x) = x$ se $x > 0$, altrimenti $0$
+- Può essere usata per i layer convoluzionali
+- Lei o le sue varianti son usate per i livelli interni delle reti neurali profonde
+- La sua derivata è una funzione a gradino
+- È una funzione monotona non decrescente
 
 # Funzione di MaxPooling
 - Dato un tensore in input restituisce il valore massimo del tensore
@@ -263,18 +312,28 @@ $$number\_parameters = out\_channels * (in\_channels * kernel\_height * kernel\_
 - NON hanno una struttura encoder-decoder, simile a quella di un autoencoder
 - NON basano il loro training su una funzione di loglikelihood relativa ai dati generati
 
-
 # Long-Short Term Memory Models (LSTM)
+- Sono una particolare tipologia di Rete Ricorrente
 - Utilizzati prevalentemente per elaborazione di sequenze di dati
     - NON per segmentazione di immagini mediche
     - NON per predirre traiettorie per agenti a guida autonoma
     - NON per elaborazione di immagini
+- Utilizzano delle particolari porte (gates) per gestire l'evoluzione della cella di memmoria durante l'elaborazione di una sequenza di dati
 
 # Funzione di loss
 - Rete neurale per classificazione di categorie MULTIPLE con softmax come attivazione finale tipicamente usa come loss la CATEGORICAL CROSSENTROPY
+- Rete neurale per classificazione BINARIA con sigmoid come attivazione finale tipicamente usa come loss la BINARY CROSSENTROPY
 
 # U-Net
+- È un componente tipico dei modelli generativi a diffusione
+- Può essere usata per la rimozione del rumore (denoising) di immagini
 - Il suo campo tipico di applicazione è la segmentazione semantica
 - Il suo campo tipico di applicazione NON è la generazione musicale
 - Il suo campo tipico di applicazione NON è la object detection
 - Il suo campo tipico di applicazione NON è la natural language processing
+
+# Reti per classificazione di immagini
+- Inception-v3
+- VGG19
+- ResNet
+- NON la U-Net (usata invece per la segmentazione di immagini biomediche)
