@@ -1,3 +1,7 @@
+---
+geometry: margin=1cm
+---
+
 # Esami analizzati
 - Simulazione di metà corso
 - Scritto del 2023-02-12
@@ -107,7 +111,7 @@ $$H(P, Q) = -\sum_{i=1}^n P(X=i) \log_2{Q(X=i)}$$
 # Probabilità condizionata $P(A \mid B)$
 $$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$$
 $$P(A \mid B) = P(A) \cdot \frac{P(B \mid A)}{P(B)}$$
-- $P(A \mid B) \leq P(A \cap B)$
+- $P(A \mid B) \geq P(A \cap B)$ (poichè è un rapporto di due numeri tra 0 e 1)
 
 # Distribuzione congiunta (per N variabili aleatorie discrete)
 - È la distribuzuione di probabilità di tutte le possibili tuple di valori per le variabili
