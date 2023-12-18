@@ -28,7 +28,8 @@ La risposta più lunga e dettagliata solitamente è la corretta, è più importa
 - È una tecnica di apprendimento ad "ensemble" basata su di una combinazione di alberi di decisione
 
 # Naive Bayes
-- Numero di parametri = $num_classi + num_classi * num_features$
+- Numero di parametri nel caso di feature booleane = $num\_classi + num\_classi * num\_features$
+- Numero di parametri nel caso generico = $num\_classi + num\_classi * \sum_{f \in F} possibile\_values(f) \quad where \quad F = set\_of\_features$
 - È una tecnica di tipo generativo, in queanto cerca di determinare la distribuzione delle varie categorie dei dati
 - Si suppone (ingenuamente e per semplicità) che le features siano indipendenti tra loro
 - Fornisce un modo computazionale efficiente per approssimare la distribuzione congiunta di probabilità delle features
