@@ -7,9 +7,11 @@ geometry: margin=1cm
 - Scritto del 2023-02-12
 - Scritto del 2022-12-21
 - Scritto del 2023-01-16
+- Scritto del 2023-12-19
 
 # General tips
 > Selezionare la sentenza CORRETTA...
+
 Solitamente prende 4 sentenze vere e 3 di queste le nega, quindi se sei indeciso seleziona quella non negata, è vero anche per quando le sentenze sono ERRATE, ma più raro che il trick funzioni
 
 La risposta più lunga e dettagliata solitamente è la corretta, è più importante il dettaglio della lunghezza in questo caso
@@ -28,8 +30,10 @@ La risposta più lunga e dettagliata solitamente è la corretta, è più importa
 - È una tecnica di apprendimento ad "ensemble" basata su di una combinazione di alberi di decisione
 
 # Naive Bayes
-- Numero di parametri nel caso di feature booleane = $num\_classi + num\_classi * num\_features$
-- Numero di parametri nel caso generico = $num\_classi + num\_classi * \sum_{f \in F} possibile\_values(f) \quad where \quad F = set\_of\_features$
+- Numero di parametri nel caso di feature booleane
+    $$num\_classi + num\_classi * num\_features$$
+- Numero di parametri nel caso generico
+    $$num\_classi + num\_classi * \sum_{f \in F} possibile\_values(f) \quad where \quad F = set\_of\_features$$
 - È una tecnica di tipo generativo, in queanto cerca di determinare la distribuzione delle varie categorie dei dati
 - Si suppone (ingenuamente e per semplicità) che le features siano indipendenti tra loro
 - Fornisce un modo computazionale efficiente per approssimare la distribuzione congiunta di probabilità delle features
@@ -83,7 +87,9 @@ La risposta più lunga e dettagliata solitamente è la corretta, è più importa
 
 # Entropia
 > È una misura del grado di disordine della variabile aleatoria
+
 $$H(X) = -\sum_{i=1}^n P(X=i) \log_2{P(X=i)}$$
+
 - Aggiungere alla funzione obiettivo una componente tesa ad AUMENTARE l'entropia ha l'effetto di ridistribuire la probabilità in modo più bilanciato tra tutte le classi
 - Aggiungere alla funzione obiettivo una componente tesa a DIMINURE l'entropia ha l'effetto di focalizzare le scelte sui casi più probabili
 - È MASSIMA quando la probabilità è distribuita equamente tra tutti i valori
@@ -92,6 +98,7 @@ $$H(X) = -\sum_{i=1}^n P(X=i) \log_2{P(X=i)}$$
 
 # Cross Entropy
 $$H(P, Q) = -\sum_{i=1}^n P(X=i) \log_2{Q(X=i)}$$
+
 - NON è simmetrica
 - È uguale alla divergenza di Kullback-Leibler $KL(P, Q)$ più l'entropia $H(P)$ di $P$
 - Misura la loglikelihood di $Q$ data la distribuzione $P$ (attenzione all'ordine!)
@@ -112,6 +119,7 @@ $$H(P, Q) = -\sum_{i=1}^n P(X=i) \log_2{Q(X=i)}$$
 # Probabilità condizionata $P(A \mid B)$
 $$P(A \mid B) = \frac{P(A \cap B)}{P(B)}$$
 $$P(A \mid B) = P(A) \cdot \frac{P(B \mid A)}{P(B)}$$
+
 - $P(A \mid B) \geq P(A \cap B)$ (poichè è un rapporto di due numeri tra 0 e 1)
 
 # Distribuzione congiunta (per N variabili aleatorie discrete)
@@ -138,6 +146,7 @@ $$P(A \mid B) = P(A) \cdot \frac{P(B \mid A)}{P(B)}$$
 # Dado/moneta truccata (MLE)
 $$P(X^n = \alpha_i \mid \theta) = c_{\alpha_i} \cdot \prod_i \theta_i^{\alpha_i}$$
 Where $\alpha_i$ is the number of $i$ in the sequence and $c_{a_i}$ is a combinatorial constant not depending on $\theta$
+
 - Per calcolare quale delle due situazioni è più probabile calcolando solo la produttoria, tanto $c$ è costante per entrambi i casi
 - Esempio
     - Due dadi, uno normale e uno truccato che restituisce un 6 con probabilità 0.5 e gli altri valori con probabilità 0.1
@@ -148,6 +157,7 @@ Where $\alpha_i$ is the number of $i$ in the sequence and $c_{a_i}$ is a combina
 
 # Modelli generativi
 > Modelli che cercano di apprendere la distribuzione di probabilità dei dati
+
 - Generative Adversarial Networks (GAN), Variational AutoEncoders (VAE) e Diffusion Models sono esempi di tecniche generative profonde
 - Un tipico esempio di questa tecnica è il NAIVE BAYES
 - NON sono modelli meta-teorici rivolti alla automatizzazione della generazione di reti neurali
@@ -204,6 +214,7 @@ Where $\alpha_i$ is the number of $i$ in the sequence and $c_{a_i}$ is a combina
 
 # Derivata della funzione logistica
 $$\frac{d}{dx} \sigma(x) = \sigma(x) \cdot (1 - \sigma(x))$$
+
 - Tende a $0$ quando $x \rightarrow - \infty$
 - Hai il suo massimo in corrispondenza dello $0$
 - NON è una funzione simmetrica
@@ -229,6 +240,7 @@ $$\frac{d}{dx} \sigma(x) = \sigma(x) \cdot (1 - \sigma(x))$$
 
 # Neuroni Artificiali
 > Definisce un semplice modello matematico che simula un neurone biologico
+
 - Tipicamente calcola una combinazione lineare dei suoi input, seguita dalla applicazione di una funzione di attivazione NON lineare
 - Il suo numero di parametri è lineare nel numero dei suoi input
 - NON può apprendere qualunque funzione dei suoi input
@@ -236,7 +248,9 @@ $$\frac{d}{dx} \sigma(x) = \sigma(x) \cdot (1 - \sigma(x))$$
 
 # Campo ricettivo di neuroni artificiali (receptive field)
 > Definisce la porzione dell'input che influenza l'attivazione di un determinato neurone
+
 $$r_{i-1} = s_i \cdot r_i + (k_i - s_i)$$
+
 - Esempio: Due layer Conv2D con stride 1, il primo con kernel 5x5 e il secondo con kernel 3x3
     - $r_2 = 1$
     - $r_1 = 1 \cdot r_2 + (3 - 1) = 3$
@@ -293,6 +307,7 @@ $$number\_parameters = out\_channels * (in\_channels * kernel\_height * kernel\_
 
 # Funzione ReLU
 > $ReLU(x) = x$ se $x > 0$, altrimenti $0$
+
 - Può essere usata per i layer convoluzionali
 - Lei o le sue varianti son usate per i livelli interni delle reti neurali profonde
 - La sua derivata è una funzione a gradino
@@ -342,3 +357,13 @@ $$number\_parameters = out\_channels * (in\_channels * kernel\_height * kernel\_
 - VGG19
 - ResNet
 - NON la U-Net (usata invece per la segmentazione di immagini biomediche)
+
+# Optmizer in Tensorflow/Keras
+> Definisce l'algoritmo che calcola i gradienti della loss e aggiorna i pesi del modello
+
+- NON contrasta l'overfitting
+- NON aggiunge penalità ai pesi del layer su cui viene istanziato
+- NON salva i migliori pesi del modello durante il processo di training
+
+# K-Means
+> Il suo obbiettivo è raggruppare i punti di un cluster attorno al loro centroide
